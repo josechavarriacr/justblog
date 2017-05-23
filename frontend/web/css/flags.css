@@ -1,0 +1,467 @@
+body {
+  /*background: #bdc3c7;*/
+}
+
+.bandera {
+	margin: 0em;
+	height: 150px;
+	width: 250px;	
+	float: none;
+}
+
+.nicaragua {
+	background: -webkit-linear-gradient(top, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
+	background: linear-gradient(to bottom, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
+}
+
+.guatemala {
+	background: -webkit-linear-gradient(left, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
+	background: linear-gradient(to right, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
+}
+
+.costarica {
+	background: -webkit-linear-gradient(top, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);
+	background: linear-gradient(to bottom, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);		
+}
+
+.panama {
+	background: #fff;
+}
+
+.panama:before {
+	position:relative;
+	display:block;
+	content:"";
+	padding:0px 0px 0 0px;
+	width:50%;
+	height:50%;
+	top:75px;
+	left:0;
+	background: #015293;
+}
+
+.panama:after {
+	position:relative;
+	display:block;
+	content:"";
+	padding:0px 0px 0 0px;
+	width:50%;
+	height:50%;
+	top:-365px;
+	left:100px;
+	background: #d31134;
+}
+
+.estrella-azul {
+  position: relative;
+  top: -240px;
+  left: -50px;
+  -webkit-transform: scale(.25);
+  -ms-transform: scale(.25);
+  transform: scale(.25);
+}
+
+.estrella-azul2 {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #015293;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #015293;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-azul2:before {
+   border-bottom: 80px solid #015293;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+
+}
+.estrella-azul2:after {
+   position: absolute;
+   display: block;
+   color: #015293;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #015293;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.estrella-roja {
+  position: relative;
+  top: -50px;
+  left: 45px;
+  -webkit-transform: scale(.25);
+  -ms-transform: scale(.25);
+  transform: scale(.25);
+}
+
+.estrella-roja2 {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #d31134;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #d31134;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-roja2:before {
+   border-bottom: 80px solid #d31134;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+
+}
+.estrella-roja2:after {
+   position: absolute;
+   display: block;
+   color: #d31134;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #d31134;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.honduras {
+	background: -webkit-linear-gradient(top, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
+	background: linear-gradient(to bottom, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
+}
+
+.estrella-1 {
+  position: relative;
+  top: -25px;
+  left: -35px;
+  -webkit-transform: scale(.1);
+  -ms-transform: scale(.1);
+  transform: scale(.1);
+}
+
+.estrella-1a {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #0073ce;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #0073ce;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-1a:before {
+   border-bottom: 80px solid #0073ce;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+
+}
+.estrella-1a:after {
+   position: absolute;
+   display: block;
+   color: #0073ce;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #0073ce;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.estrella-2 {
+  position: relative;
+  top: -120px;
+  left: -35px;
+  -webkit-transform: scale(.1);
+  -ms-transform: scale(.1);
+  transform: scale(.1);
+}
+
+.estrella-2a {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #0073ce;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #0073ce;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-2a:before {
+   border-bottom: 80px solid #0073ce;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+
+}
+.estrella-2a:after {
+   position: absolute;
+   display: block;
+   color: #0073ce;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #0073ce;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.estrella-3 {
+  position: relative;
+  top: -265px;
+  left: 35px;
+  -webkit-transform: scale(.1);
+  -ms-transform: scale(.1);
+  transform: scale(.1);
+}
+
+.estrella-3a {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #0073ce;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #0073ce;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-3a:before {
+   border-bottom: 80px solid #0073ce;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+}
+
+.estrella-3a:after {
+   position: absolute;
+   display: block;
+   color: #0073ce;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #0073ce;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.estrella-4 {
+  position: relative;
+  top: -360px;
+  left: 35px;
+  -webkit-transform: scale(.1);
+  -ms-transform: scale(.1);
+  transform: scale(.1);
+}
+
+.estrella-4a {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #0073ce;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #0073ce;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-4a:before {
+   border-bottom: 80px solid #0073ce;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+}
+
+.estrella-4a:after {
+   position: absolute;
+   display: block;
+   color: #0073ce;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #0073ce;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.estrella-5 {
+  position: relative;
+  top: -490px;
+  left: 0px;
+  -webkit-transform: scale(.1);
+  -ms-transform: scale(.1);
+  transform: scale(.1);
+}
+
+.estrella-5a {
+   margin: 50px 0;
+   position: relative;
+   display: block;
+   color: #0073ce;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #0073ce;
+   border-left:   100px solid transparent;
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   transform:      rotate(35deg);
+}
+
+.estrella-5a:before {
+   border-bottom: 80px solid #0073ce;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   transform:      rotate(-35deg);
+}
+
+.estrella-5a:after {
+   position: absolute;
+   display: block;
+   color: #0073ce;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #0073ce;
+   border-left: 100px solid transparent;
+  content: '';
+   -webkit-transform: rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   transform:      rotate(-70deg);   
+}
+
+.elsalvador {
+	background: -webkit-linear-gradient(top, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
+	background: linear-gradient(to bottom, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
+}
+
+.texto {
+  font-family: 'Lato', sans-serif;
+  line-height:1;
+}
