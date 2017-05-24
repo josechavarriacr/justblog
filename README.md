@@ -52,16 +52,23 @@ INSTALLATION
 
 1- git clone https://github.com/josechavarriacr/justblog.git
 or dowloaded de zip file from https://github.com/josechavarriacr/justblog
+
 2- composer update
+
 3- composer install 
+
 4- create databse called test
+
 5- yii migrate
+
 6- enjoy ;)
 
 
 ACCES
 -------------
+
 home -> http://localhost/justblog
+
 admin -> http://localhost/justblog/admin
 
 
