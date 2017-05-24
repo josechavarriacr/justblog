@@ -64,7 +64,7 @@ or dowloaded de zip file from https://github.com/josechavarriacr/justblog
 6- enjoy ;)
 
 
-ACCES
+ACCESS
 -------------
 
 home -> http://localhost/justblog
