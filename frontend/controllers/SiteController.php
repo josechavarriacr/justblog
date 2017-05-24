@@ -23,7 +23,6 @@ class SiteController extends Controller
 {
 	public function behaviors()
 	{
-        // Analytics::init();
 		return [
 		'access' => [
 		'class' => AccessControl::className(),

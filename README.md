@@ -1,20 +1,7 @@
-Yii 2 Advanced Project Template
+JustBlog
 ===============================
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
-
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+Simple platform for blogging based in Yii2
 
 DIRECTORY STRUCTURE
 -------------------
@@ -42,6 +29,7 @@ backend
     web/                 contains the entry script and Web resources
 frontend
     assets/              contains application assets such as JavaScript and CSS
+    components/          contains files used to SEO, RSS and SyntaxHigh
     config/              contains frontend configurations
     controllers/         contains Web controller classes
     models/              contains frontend-specific model classes
@@ -53,3 +41,27 @@ frontend
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 ```
+
+REQUIREMENTS
+------------
+
+The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+
+INSTALLATION
+------------
+
+1- git clone https://github.com/josechavarriacr/justblog.git
+or dowloaded de zip file from https://github.com/josechavarriacr/justblog
+2- composer update
+3- composer install 
+4- create databse called test
+5- yii migrate
+6- enjoy ;)
+
+
+ACCES
+-------------
+home -> http://localhost/justblog
+admin -> http://localhost/justblog/admin
+
+
