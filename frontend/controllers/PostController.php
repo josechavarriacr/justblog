@@ -28,7 +28,7 @@ class PostController extends Controller
 {
 	public function behaviors()
 	{
-		Analytics::init();
+		// Analytics::init();
 		return [
 		'verbs' => [
 		'class' => VerbFilter::className(),
@@ -87,13 +87,25 @@ class PostController extends Controller
 		}
 	}
 
+	protected function ipUser(){
+		$profile = profile::find()->orderBy('id ASC')->limit(1)->one();
+		$ip = Yii::$app->getRequest()->getUserIP();
+		if (!is_null($profile->ip) && $profile->ip == $ip) {
+			return false;
+		}else{
+			return true;
+		}
+	}
+
 	public function actionUrl($url)
 	{ 
 		$model = Post::find()->where(['url'=>$url])->andWhere(['type'=>'post'])->andWhere(['status'=>1])->one();
 		if (!is_null($model)) {
-			$model->count = $model->count + 1;
-			$model->save(false);
 
+			if($this->ipUser()){
+				$model->count = $model->count + 1;
+				$model->save(false);
+			}
 			return $this->render('view', [
 				'model' => $model,
 				]);      
