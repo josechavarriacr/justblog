@@ -90,7 +90,7 @@ class MetaTagsSite extends yii\web\View
 				]);
 			\Yii::$app->view->registerMetaTag([
 				'property' => 'og:image',
-				'content' => $domain.$model->image,
+				'content' => $model->image,
 				]);
 			\Yii::$app->view->registerMetaTag([
 				'property' => 'og:description',

@@ -47,12 +47,12 @@ class MetatagController extends Controller
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) ) {
-			
+			$nameIco = 'ico';
 			$model->ico = UploadedFile::getInstance($model, 'ico');
 			if(!empty($model->ico)){
 				$pathIco = Yii::getAlias('@web/uploads/profile/');
-				$model->ico->saveAS('uploads/profile/'.$model->ico->name);
-				$model->icon = $pathIco.$model->ico->name;
+				$model->ico->saveAS('uploads/profile/'.$nameIco.'.'.$model->ico->extension);
+				$model->icon = $pathIco.$nameIco.'.'.$model->ico->extension;
 			}
 
 			$model->img = UploadedFile::getInstance($model, 'img');

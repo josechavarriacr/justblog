@@ -26,7 +26,7 @@ AppAsset::register($this);
 	<div class="wrap">
 		<?php
 		NavBar::begin([
-			'brandLabel' => '<img src="/jose/backend/web/uploads/profile/code.ico" class="ico" >',
+			'brandLabel' => '<img src="backend/web/uploads/profile/ico.ico" class="ico" >',
 			'brandUrl' => Yii::$app->homeUrl,
 			'options' => [
 			'class' => 'navbar-custom navbar-fixed-top',
