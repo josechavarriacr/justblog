@@ -50,7 +50,7 @@ Yii::$app->site->getIcon();
 								</h3>
 								<div class="row">
 									<div class="col-lg-3">
-										<p class="text-muted">Visitas <span class="fa fa-eye"> <?=$post['count']?></span></p>
+										<p class="text-muted text-danger"><span class="fa fa-eye"> <?=$post['count']?> visitas </span></p>
 									</div>
 									<div class="col-lg-3-offset-0">
 										<p class="text-muted">Posteado en <?=Yii::$app->formatter->asDate($post['created_at'])?></p>

@@ -66,7 +66,7 @@ return [
         'enablePrettyUrl' => true,
         'rules' => array(
             
-                '<action:(contact|login|signup|logout|home|index|privacy)>'=>'site/<action>', //hide site directory
+                '<action:(contact|login|signup|logout|home|index|privacy|wp-admin)>'=>'site/<action>', //hide site directory
                 '<action:(rss)>' => 'post/<action>',//hide post directory
 
                 'post' => 'post/index',

@@ -66,7 +66,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        
+        'site' => [
+            'class' => 'frontend\components\MetaTagsSite',
+        ],
         'urlManager' => [
             'showScriptName' => false,
             'enablePrettyUrl' => true,

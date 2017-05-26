@@ -2,11 +2,11 @@
 
  use frontend\models\Post;
 
- $model = Post::find()->where(['type'=>'about'])->orderBy(['id'=>SORT_ASC])->limit(1)->one();
+ $model = Post::find()->where(['type'=>'privacy'])->orderBy(['id'=>SORT_ASC])->limit(1)->one();
  ?>
  <?php if (!is_null($model)):?>
 
- 	<?=$this->title= $model->titulo;?>
+ 	<?php $this->title= $model->titulo;?>
  	<code>Página generada en <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
  	<div class="row">
  		<article class="blog">
@@ -20,4 +20,4 @@
  	
  <?php endif; ?>
 
- <code>Página generada en <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
+
