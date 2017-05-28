@@ -35,7 +35,7 @@ AppAsset::register($this);
 			]);
 		$menuItems = [
 		['label' => '<span class="glyphicon glyphicon-book"></span> Post', 'url' => ['/post/']],
-		['label' => '<span class="glyphicon glyphicon-user"></span> About', 'url' => ['/site/contact']],
+		['label' => '<span class="glyphicon glyphicon-user"></span> About', 'url' => ['/site/about']],
 		['label' => '<span class="fa fa-rss"></span> RSS', 'url' => ['/post/rss']],
 		];
 		if (Yii::$app->user->isGuest) {

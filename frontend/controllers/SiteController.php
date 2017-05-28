@@ -113,6 +113,31 @@ class SiteController extends Controller
    return $this->render('index');
 }
 
+ public function actionAdmin()
+    {
+      $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
+      if (!is_null($profile)) {
+       Growl::widget([
+        'type' => Growl::TYPE_GROWL,
+        'title' => 'Ups!',
+        'icon' => "$profile->image",
+        'iconOptions' => ['class'=>'img-ico'],
+        'body' => '</br>Try again.',
+        'showSeparator' => false,
+        'delay' => 0,
+        'pluginOptions' => [
+        'icon_type'=>'image',
+        'showProgressbar' => false,
+        'placement' => [
+        'from' => 'top',
+        'align' => 'right',
+        ],
+        ]
+        ]);
+   }
+   return $this->render('index');
+}
+
 public function actionLogout()
 {
    Yii::$app->user->logout();
