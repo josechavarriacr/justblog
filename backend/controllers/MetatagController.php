@@ -47,7 +47,6 @@ class MetatagController extends Controller
         'class' => 'yii\web\ErrorAction',
         ],
         ];
-    }
 	}
 
 	public function actionIndex()
