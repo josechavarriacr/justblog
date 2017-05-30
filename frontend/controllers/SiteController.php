@@ -28,10 +28,10 @@ class SiteController extends Controller
 		return [
 		'access' => [
 		'class' => AccessControl::className(),
-		'only' => ['logout', 'signup','index','contact','about'],
+		'only' => ['logout', 'signup','requestPasswordReset','resetPassword','contact'],
 		'rules' => [
 		[
-        'actions' => ['signup','index','contact','about'],//allows without login
+        'actions' => ['signup'],//allows without login
         'allow' => true,
         'roles' => ['?'],
         ],
@@ -197,31 +197,31 @@ public function actionWpAdmin(){
     return $this->render('about');
 }
 
-      // public function actionSignup()
-      // {
-      // 	$model = new SignupForm();
-      // 	if ($model->load(Yii::$app->request->post())) {
-      // 		if ($user = $model->signup()) {
+      public function actionSignup()
+      {
+      	$model = new SignupForm();
+      	if ($model->load(Yii::$app->request->post())) {
+      		if ($user = $model->signup()) {
 
-      // 			$profile = new Profile();
-      // 			$profile->id_user = $user->id;
-      // 			$profile->email = $user->email;
-      // 			$profile->save(false);
+      			$profile = new Profile();
+      			$profile->id_user = $user->id;
+      			$profile->email = $user->email;
+      			$profile->save(false);
 
-      // 			$meta = new Metatag();
-      // 			$meta->id_user = $user->id;
-      // 			$meta->save(false);
+      			$meta = new Metatag();
+      			$meta->id_user = $user->id;
+      			$meta->save(false);
 
-      // 			if (Yii::$app->getUser()->login($user)) {
-      // 				return $this->goHome();
-      // 			}
-      // 		}
-      // 	}
+      			if (Yii::$app->getUser()->login($user)) {
+      				return $this->goHome();
+      			}
+      		}
+      	}
 
-      // 	return $this->render('signup', [
-      // 		'model' => $model,
-      // 		]);
-      // }
+      	return $this->render('signup', [
+      		'model' => $model,
+      		]);
+      }
 
 public function actionRequestPasswordReset()
 {

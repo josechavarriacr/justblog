@@ -12,16 +12,41 @@ use yii\web\UploadedFile;
 
 class MetatagController extends Controller
 {
-	public function behaviors()
-	{
-		return [
-		'verbs' => [
-		'class' => VerbFilter::className(),
-		'actions' => [
-		'delete' => ['POST'],
-		],
-		],
-		];
+	 public function behaviors()
+    {   
+        return [
+        'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+        [
+        'actions' => ['login', 'error'],//actions without loggin
+        'allow' => true,
+        ],
+        [
+        'actions' => ['logout','index','view','update','delete'],//action with login
+        'allow' => true,
+        'roles' => ['@'],
+        ],
+        ]
+        ],
+        'verbs' => [
+        'class' => VerbFilter::className(),
+        'actions' => [
+        'flush-cache' => ['POST'],
+        'clear-assets' => ['POST'],
+        ],
+        ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+        'error' => [
+        'class' => 'yii\web\ErrorAction',
+        ],
+        ];
+    }
 	}
 
 	public function actionIndex()
