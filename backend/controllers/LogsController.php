@@ -8,6 +8,7 @@ use backend\models\LogsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use yii\data\Pagination;
 
 class LogsController extends Controller

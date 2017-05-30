@@ -8,6 +8,7 @@ use backend\models\CategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use yii\web\UploadedFile;
 
 class CategoryController extends Controller
