@@ -35,7 +35,7 @@ class m130524_201442_init extends Migration
             'text' => $this->text()->notNull(),
             'count' => $this->integer(),
             'created_at' => $this->integer(),
-            'type' => "enum('post','about','privacy')",
+            'type' => "enum('post','about','privacy','me','ama')",
             'status' => $this->boolean(),
             ], $tableOptions);
 

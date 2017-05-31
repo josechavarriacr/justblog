@@ -22,7 +22,8 @@ use kartik\switchinput\SwitchInput;
             <?= $form->field($model, 'status')->widget(SwitchInput::classname(), []) ?>
             <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'type')->dropDownList(['about' => 'About', 'privacy' => 'Privacy', ], ['prompt' => 'Select']) ?>
+            <?= $form->field($model, 'type')->dropDownList(
+            ['about' => 'About', 'privacy' => 'Privacy', 'me' => 'Me','ama' => 'AMA'], ['prompt' => 'Select']) ?>
             <?= $form->field($model, 'descripcion')->textArea(['maxlength' => 500,'rows' => '4']) ?>      
             <?php if ($model->img): ?>
                 <div class="img-preview">

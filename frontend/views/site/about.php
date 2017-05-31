@@ -1,9 +1,4 @@
- <?php
 
- use frontend\models\Post;
-
- $model = Post::find()->where(['type'=>'about'])->orderBy(['id'=>SORT_ASC])->limit(1)->one();
- ?>
  <?php if (!is_null($model)):?>
 
  	<?php $this->title= $model->titulo;?>

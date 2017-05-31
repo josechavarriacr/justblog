@@ -94,6 +94,17 @@ img{
     position: relative;
     bottom: 6px;
 }
+
+.bs-docs-footer-links {
+    padding-left: 0;
+    margin-bottom: 20px;
+    word-spacing:10px;
+}
+.bs-docs-footer-links li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
 /*Nav bar custom*/
 .navbar-custom {
     background-color:#31708f;

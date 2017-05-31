@@ -15,9 +15,7 @@ AppAsset::register($this);
 <head>
 	<meta charset="<?= Yii::$app->charset ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <?=Yii::$app->site->getIcon();?> -->
-	<?=Yii::$app->site->getMetaTags();?>
-	<?= Html::csrfMetaTags() ?>
+	 <?=Yii::$app->site->getIcon();?> 
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 </head>
@@ -27,7 +25,7 @@ AppAsset::register($this);
 	<div class="wrap">
 		<?php
 		NavBar::begin([
-			'brandLabel' => '<img src="/justblog/backend/web/uploads/profile/ico.ico" class="ico" >',
+			'brandLabel' => '<img src="/backend/web/uploads/profile/ico.ico" class="ico" >',
 			'brandUrl' => Yii::$app->homeUrl,
 			'options' => [
 			'class' => 'navbar-custom navbar-fixed-top',
@@ -35,7 +33,7 @@ AppAsset::register($this);
 			]);
 		$menuItems = [
 		['label' => '<span class="glyphicon glyphicon-book"></span> Post', 'url' => ['/post/']],
-		['label' => '<span class="glyphicon glyphicon-user"></span> About', 'url' => ['/site/about']],
+		['label' => '<span class="glyphicon glyphicon-user"></span> Bio', 'url' => ['/me']],
 		['label' => '<span class="fa fa-rss"></span> RSS', 'url' => ['/post/rss']],
 		];
 		if (Yii::$app->user->isGuest) {
