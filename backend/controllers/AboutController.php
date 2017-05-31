@@ -51,7 +51,10 @@ class AboutController extends Controller
 
     public function actionIndex()
     {
-    	$model = Post::find()->where(['type'=>'about'])->orWhere(['type'=>'privacy'])->all();
+    	$model = Post::find()
+    	->where(['type'=>'about'])
+    	->orWhere(['type'=>'privacy'])
+    	->orWhere(['type'=>'ama'])->all();
 
     	return $this->render('index', [
     		'model' => $model,

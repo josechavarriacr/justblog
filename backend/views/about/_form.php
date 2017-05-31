@@ -23,7 +23,7 @@ use kartik\switchinput\SwitchInput;
             <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'type')->dropDownList(
-            ['about' => 'About', 'privacy' => 'Privacy', 'me' => 'Me','ama' => 'AMA'], ['prompt' => 'Select']) ?>
+            ['about' => 'About', 'privacy' => 'Privacy','ama' => 'AMA'], ['prompt' => 'Select']) ?>
             <?= $form->field($model, 'descripcion')->textArea(['maxlength' => 500,'rows' => '4']) ?>      
             <?php if ($model->img): ?>
                 <div class="img-preview">
