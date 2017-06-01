@@ -18,7 +18,7 @@
 				</div><hr>
 
 				<div class="row">
-					<div class="col-lg-7 col-lg-offset-1">
+					<div class="col-lg-7 col-lg-offset-2">
 						<p><?=$model->description;?></p>
 					</div>
 				</div>
