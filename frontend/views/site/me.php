@@ -4,7 +4,7 @@
 	<code>Página generada en <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
 	<div class="row">
 		<article class="blog">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<div class="col-lg-7 col-lg-offset-2 col-md-10 col-md-offset-1">
 				
 				<div class="row">
 					<div class="col-lg-5">
