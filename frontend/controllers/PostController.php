@@ -186,35 +186,54 @@ class PostController extends Controller
 			return $this->redirect(['/error']);
 		}
 	}
+
+	protected function isBoolean($meta, $profile, $news){
+		if (!is_null($meta)) {
+			if (!is_null($profile)){
+				if (!is_null($news)){
+					return true;
+				}
+			}
+		}
+	}
+
 	public function actionRss()
 	{
 		$meta = Metatag::find()->orderBy('id ASC')->limit(1)->one();
 		$profile = profile::find()->orderBy('id ASC')->limit(1)->one();
 		$news = Post::find()->orderBy('created_at DESC')->limit(100)->all();
-		$feed = new Feed();
-		$feed->title = $meta->title;
-		$feed->link = Url::to('');
-		$feed->selfLink = Url::to(['post/rss'], true);
-		$feed->description = $meta->description;
-		$feed->language = Yii::$app->language;
-		$feed->setWebMaster($profile->email, $profile->name);
-		$feed->setManagingEditor($profile->email, $profile->name);
 
-		foreach ($news as $post) {
-			$item = new Item();
-			$item->title = $post->titulo;
-			$item->link = Url::to([$post->url], true);
-			$item->guid = Url::to([$post->url], true);
-			$item->description = HtmlPurifier::process(Markdown::process($post->descripcion));
+		if ($this->isBoolean($meta, $profile, $news)) {
+			$feed = new Feed();
+			$feed->title = $meta->title;
+			$feed->link = Url::to('');
+			$feed->selfLink = Url::to(['post/rss'], true);
+			$feed->description = $meta->description;
+			$feed->language = Yii::$app->language;
+			$feed->setWebMaster($profile->email, $profile->name);
+			$feed->setManagingEditor($profile->email, $profile->name);
 
-			if (!empty($post->url)) {
-				$item->description .= "leer más en el siguiente link: ".Html::a(Html::encode($post->url), $post->url);
+			foreach ($news as $post) {
+				$item = new Item();
+				$item->title = $post->titulo;
+				$item->link = Url::to([$post->url], true);
+				$item->guid = Url::to([$post->url], true);
+				$item->description = HtmlPurifier::process(Markdown::process($post->descripcion));
+
+				if (!empty($post->url)) {
+					$item->description .= "leer más en el siguiente link: ".Html::a(Html::encode($post->url), $post->url);
+				}
+
+				$item->pubDate = $post->created_at;
+				$item->setAuthor($profile->email, $profile->name);
+				$feed->addItem($item);
 			}
+			$feed->render();
+		} else {
+			Yii::$app->session->setFlash('info','Empty Information, check backend');
+			return $this->redirect(['/error']);
 
-			$item->pubDate = $post->created_at;
-			$item->setAuthor($profile->email, $profile->name);
-			$feed->addItem($item);
 		}
-		$feed->render();
 	}
+
 }
