@@ -188,9 +188,9 @@ class PostController extends Controller
 	}
 
 	protected function isBoolean($meta, $profile, $news){
-		if (!is_null($meta)) {
-			if (!is_null($profile)){
-				if (!is_null($news)){
+		if (!is_null($meta) && !empty($meta)) {
+			if (!is_null($profile) && !empty($profile)){
+				if (!is_null($news) && !empty($news)){
 					return true;
 				}
 			}
@@ -199,8 +199,8 @@ class PostController extends Controller
 
 	public function actionRss()
 	{
-		$meta = Metatag::find()->orderBy('id ASC')->limit(1)->one();
-		$profile = profile::find()->orderBy('id ASC')->limit(1)->one();
+		$meta = Metatag::find()->select(['title','description'])->orderBy('id ASC')->limit(1)->one();
+		$profile = profile::find()->select(['name','email'])->orderBy('id ASC')->limit(1)->one();
 		$news = Post::find()->orderBy('created_at DESC')->limit(100)->all();
 
 		if ($this->isBoolean($meta, $profile, $news)) {
