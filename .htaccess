@@ -5,7 +5,7 @@ RewriteEngine On
 RewriteRule ^(frontend|backend)/web/ - [L]
 
 # Handle the case of backend, skip ([S=1]) the following rule, if current matched
-RewriteRule ^j4r(/(.*))?$ backend/web/$2 [S=1]
+RewriteRule ^admin(/(.*))?$ backend/web/$2 [S=1]
 
 # handle the case of frontend
 RewriteRule .* frontend/web/$0

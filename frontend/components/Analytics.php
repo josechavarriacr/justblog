@@ -73,9 +73,14 @@ class Analytics extends Component
 
 	protected function getReferrerUrl(){
 		if (isset($_SERVER['HTTP_REFERER'])) { 
-
 			$uri = parse_url($_SERVER['HTTP_REFERER']);
-			return $uri['host'];
+
+			$uri = $uri['host'];
+			if ($uri == 't.co') {
+				$uri = 'twitter.com';
+			} 
+			
+			return $uri;
 		}
 	}
 
