@@ -163,9 +163,33 @@ class SiteController extends Controller
     	}
     }
 
-    public function actionAbout(){
-      $model = Post::find()->where(['type'=>'about'])->andWhere(['status'=>1])
+    protected function ipUser(){
+      $profile = profile::find()->orderBy('id ASC')->limit(1)->one();
+      $ip = Yii::$app->getRequest()->getUserIP();
+      if (!is_null($profile->ip) && $profile->ip == $ip) {
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    protected function findAbout($var){
+      $model = Post::find()->where(['type'=>$var])->andWhere(['status'=>1])
       ->orderBy(['id'=>SORT_ASC])->limit(1)->one();
+
+      if (!is_null($model)) {
+
+        if($this->ipUser()){
+          $model->count = $model->count + 1;
+          $model->save(false);
+        }
+
+        return $model;
+      } 
+    }
+
+    public function actionAbout(){
+      $model = $this->findAbout('about');
 
       return $this->render('about', [
         'model' => $model,
@@ -173,10 +197,17 @@ class SiteController extends Controller
     }
 
     public function actionPrivacy(){
-      $model = Post::find()->where(['type'=>'privacy'])->andWhere(['status'=>1])
-      ->orderBy(['id'=>SORT_ASC])->limit(1)->one();
+      $model = $this->findAbout('privacy');
 
       return $this->render('privacy',[
+        'model' => $model,
+        ]);
+    }
+
+    public function actionAma(){
+      $model = $this->findAbout('ama');
+
+      return $this->render('ama',[
         'model' => $model,
         ]);
     }
@@ -185,15 +216,6 @@ class SiteController extends Controller
      $model = Profile::find()->orderBy(['id'=>SORT_ASC])->limit(1)->one();
 
      return $this->render('me',[
-      'model' => $model,
-      ]);
-   }
-
-   public function actionAma(){
-     $model = Post::find()->where(['type'=>'ama'])->andWhere(['status'=>1])
-     ->orderBy(['id'=>SORT_ASC])->limit(1)->one();
-
-     return $this->render('ama',[
       'model' => $model,
       ]);
    }
