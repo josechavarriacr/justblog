@@ -51,7 +51,7 @@ Yii::$app->meta->getMetaTags($model->id);
                    <a href="<?= Html::encode($prev['url']) ?>">
                     <img class="img-responsive" src="<?= Html::encode($prev['img']) ?>">
                 </a>
-                <h3><?= Html::encode($prev['titulo']) ?></h3>
+                <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['titulo']) ?></a></h3>
                 <p><?= Html::encode(substr($prev['descripcion'],0,200) ) ?></p>
                 <div class="ratings">
                     <p class="pull-right"><?= Html::encode($prev['count'])?> Visitas</p>
@@ -75,10 +75,10 @@ Yii::$app->meta->getMetaTags($model->id);
               <a href="<?= Html::encode($next['url']) ?>">
                 <img class="img-responsive" src="<?= Html::encode($next['img']) ?>">
             </a>
-            <h3><?= Html::encode($next['titulo']) ?></h3>
+           <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($next['titulo']) ?></a></h3>
             <p><?= Html::encode( substr($next['descripcion'], 0, 200) ) ?></p>
             <div class="ratings">
-                <p class="pull-right"><?= Html::encode($prev['count'])?> Visitas</p>
+                <p class="pull-right"><?= Html::encode($next['count'])?> Visitas</p>
                 <p>
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star"></span>

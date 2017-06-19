@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<a href="<?= Html::encode($prev['url']) ?>">
 							<img class="img-responsive" src="<?= Html::encode($prev['img']) ?>" alt="Cinque Terre">
 						</a>
-						<h3><?= Html::encode($prev['titulo']) ?></h3>
+						<h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['titulo']) ?></a></h3>
 						<p><?= Html::encode(substr($prev['descripcion'],0,200)) ?></p>
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>
@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<a href="<?= Html::encode($next['url']) ?>">
 							<img class="img-responsive" src="<?=Html::encode($next['img'])?>" alt="Cinque Terre">
 						</a>
-						<h3><?= Html::encode($next['titulo']) ?></h3>
+						<h3><a href="<?= Html::encode($next['url']) ?>"><?= Html::encode($next['titulo']) ?></a></h3>
 						<p><?= Html::encode(substr($next['descripcion'], 0,200)) ?></p>
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>

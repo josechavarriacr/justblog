@@ -30,7 +30,7 @@ class m130524_201442_init extends Migration
             'titulo' => $this->string(128)->notNull(),
             'url' => $this->string(128)->notNull(),
             'descripcion' => $this->string(512)->notNull(),
-            'keyword' => $this->string(64),
+            'keyword' => $this->string(128),
             'img' => $this->string(128),
             'text' => $this->text()->notNull(),
             'count' => $this->integer(),
