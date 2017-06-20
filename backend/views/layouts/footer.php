@@ -28,6 +28,5 @@ $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
 			</div>
 			<p class="copyright">&copy; Jose Chavaría <?= date('Y') ?></p>
 		</div>
-	</div>
-</footer>
+	</footer>
 </div>
