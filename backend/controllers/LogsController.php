@@ -24,7 +24,7 @@ class LogsController extends Controller
         'allow' => true,
         ],
         [
-        'actions' => ['logout','index','view','update','delete'],//action with login
+        'actions' => ['logout','index','view','update','delete','activity'],//action with login
         'allow' => true,
         'roles' => ['@'],
         ],
@@ -72,6 +72,14 @@ class LogsController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            ]);
+    }
+
+    public function actionActivity($ip){
+        $activity = Logs::getActivityIp($ip);
+
+        return $this->render('_activity',[
+            'array' => $activity,
             ]);
     }
 

@@ -118,16 +118,6 @@ class Logs extends \yii\db\ActiveRecord
 			return Logs::setQueries($sql);
 			break;
 
-			case 'activityIp':
-			$sql = "select tbl_logs.id, tbl_logs.ip, tbl_logs.module, tbl_logs.referrer, tbl_logs.`language`,
-			tbl_logs.method, tbl_logs.browser, tbl_logs.os, tbl_logs.device, tbl_logs.`type`,
-			tbl_logs.port, count(module) as 'count'
-			from tbl_logs
-			where ip = '$id'
-			group by module";
-			return Logs::setQueries($sql);
-			break;
-
 			default:
 			return null;
 			break;
@@ -247,15 +237,22 @@ class Logs extends \yii\db\ActiveRecord
 		}
 	}
 
-	public function getActivityIp(){
+	public function getActivityIp($ip){
 		$array = [];
-		$data = Logs::selectQueries('activityIp');
+		$sql = "select tbl_logs.id, tbl_logs.ip, tbl_logs.module, tbl_logs.referrer, tbl_logs.`language`,
+		tbl_logs.method, tbl_logs.browser, tbl_logs.os, tbl_logs.device, tbl_logs.`type`,
+		tbl_logs.port, count(module) as 'count'
+		from tbl_logs
+		where ip = '$ip'
+		group by module";
+		$data = Logs::setQueries($sql);
 		if (!is_null($data)) {
 			foreach($data as $value){
-				$array[] = array($value['id'],(int)$value['ip'],(int)$value['module'],
-					(int)$value['referrer'],(int)$value['language'],(int)$value['method'],
-					(int)$value['browser'],(int)$value['device'],(int)$value['type'],
-					(int)$value['port'],(int)$value['count']);
+				$array[] = $value;
+				// array($value['id'],(int)$value['ip'],(int)$value['module'],
+				// 	(int)$value['referrer'],(int)$value['language'],(int)$value['method'],
+				// 	(int)$value['browser'],(int)$value['device'],(int)$value['type'],
+				// 	(int)$value['port'],(int)$value['count']);
 			}
 			return $array;
 		}

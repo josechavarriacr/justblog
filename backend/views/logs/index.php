@@ -67,9 +67,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>
                             <?= Html::a($log->id, [$log->id], ['class' => 'profile-link']) ?>
                         </td>
-
-                        <td><?= $log->ip ?></td>
                         <td>
+                        <a href="<?= Url::to(['/logs/activity/', 'ip' => $log->ip]) ?>" 
+                               class="profile-link"><?=$log->ip?></a>
+                           </td>
+                           <td>
                             <?= Html::a($log->module, [$log->module], ['class' => 'profile-link']) ?>
                         </td>
                         <td>
