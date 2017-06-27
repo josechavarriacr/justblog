@@ -15,7 +15,7 @@ use yii\widgets\LinkPager;
 				<div class="blog">
 					<h3 class="heading">
 						<?= Html::a($post['titulo'], [$post['url']], ['class' => 'profile-link']) ?>
-						<?php $size = strlen($post['titulo']); $size = ($size > 40)? ($size + 25) : ($size + 0); ?>
+						<?php $size = strlen($post['titulo']); $size == ($size > 40)? ($size + 25) : ($size + 0); ?>
 					</h3>
 					<div class="row">
 						<div class="col-lg-3">
