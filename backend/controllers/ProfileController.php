@@ -4,7 +4,6 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Profile;
-use backend\models\ProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,12 +51,10 @@ class ProfileController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new ProfileSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $model = Profile::find()->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'model' => $model,
             ]);
     }
 
@@ -72,7 +69,7 @@ class ProfileController extends Controller
     {
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) ) {
-            
+
             $model->file = UploadedFile::getInstance($model, 'file');
             if(!empty($model->file)){
                 $path = Yii::getAlias('@web/uploads/profile/');

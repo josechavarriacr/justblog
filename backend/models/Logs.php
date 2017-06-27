@@ -249,10 +249,6 @@ class Logs extends \yii\db\ActiveRecord
 		if (!is_null($data)) {
 			foreach($data as $value){
 				$array[] = $value;
-				// array($value['id'],(int)$value['ip'],(int)$value['module'],
-				// 	(int)$value['referrer'],(int)$value['language'],(int)$value['method'],
-				// 	(int)$value['browser'],(int)$value['device'],(int)$value['type'],
-				// 	(int)$value['port'],(int)$value['count']);
 			}
 			return $array;
 		}
