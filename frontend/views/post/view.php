@@ -29,7 +29,7 @@ Yii::$app->meta->getMetaTags($model->id);
                     <?php endif ;?>
                     <hr>
                     <p>Redactado en <span class="label label-success"><?=Yii::$app->formatter->asDate($model->created_at);?></span></p>
-                    <h1 class="heading"><?=$model->titulo;?></h1>
+                    <h1 class="heading"><?=$model->title;?></h1>
                     <p><?=$model->text?></p>
                 </div>
             </article>
@@ -51,7 +51,7 @@ Yii::$app->meta->getMetaTags($model->id);
                    <a href="<?= Html::encode($prev['url']) ?>">
                     <img class="img-responsive" src="<?= Html::encode($prev['img']) ?>">
                 </a>
-                <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['titulo']) ?></a></h3>
+                <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['title']) ?></a></h3>
                 <p><?= Html::encode(substr($prev['descripcion'],0,200) ) ?></p>
                 <div class="ratings">
                     <p class="pull-right"><?= Html::encode($prev['count'])?> Visitas</p>
@@ -75,7 +75,7 @@ Yii::$app->meta->getMetaTags($model->id);
               <a href="<?= Html::encode($next['url']) ?>">
                 <img class="img-responsive" src="<?= Html::encode($next['img']) ?>">
             </a>
-           <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($next['titulo']) ?></a></h3>
+           <h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($next['title']) ?></a></h3>
             <p><?= Html::encode( substr($next['descripcion'], 0, 200) ) ?></p>
             <div class="ratings">
                 <p class="pull-right"><?= Html::encode($next['count'])?> Visitas</p>

@@ -36,14 +36,14 @@ class Post extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-		[['titulo', 'url', 'descripcion', 'text', 'type'], 'required'],
+		[['title', 'url', 'descripcion', 'text', 'type'], 'required'],
 		[['file'],'file'],
 		[['text','type'], 'string'],
 		[['count', 'created_at'], 'integer'],
 		[['status'], 'boolean'],
 		[['categories','tags'], 'safe'],
 		[['keyword'], 'string', 'max' =>50],
-		[['titulo'], 'string', 'max' => 128],
+		[['title'], 'string', 'max' => 128],
 		[['descripcion'], 'string', 'max' => 500],
 		[['url','img'], 'string', 'max' => 128],
 		];
@@ -53,7 +53,7 @@ class Post extends \yii\db\ActiveRecord
 	{
 		return [
 		'id' => 'ID',
-		'titulo' => 'Titulo',
+		'title' => 'Title',
 		'url' => 'Url',
 		'descripcion' => 'Descripcion',
 		'keyword' => 'Keyword',

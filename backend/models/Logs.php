@@ -70,8 +70,8 @@ class Logs extends \yii\db\ActiveRecord
 			break;
 
 			case 'visits':
-			$sql = "select tbl_post.titulo, tbl_post.count
-			from tbl_post group by tbl_post.titulo
+			$sql = "select tbl_post.title, tbl_post.count
+			from tbl_post group by tbl_post.title
 			order by tbl_post.created_at desc limit 10";
 			return Logs::setQueries($sql);      
 			break;
@@ -137,7 +137,7 @@ class Logs extends \yii\db\ActiveRecord
 		$array = [];
 		$data = Logs::selectQueries('visits');
 		if (!is_null($data)) {
-			foreach ($data as $value) {$array[] = array($value['titulo'],(int)$value['count']);}
+			foreach ($data as $value) {$array[] = array($value['title'],(int)$value['count']);}
 			return $array;
 		}
 	}
@@ -146,7 +146,7 @@ class Logs extends \yii\db\ActiveRecord
 		$array = [];
 		$data = Logs::selectQueries('visits');
 		if (!is_null($data)) {
-			foreach ($data as $value) {$array[] = array($value['titulo']);}
+			foreach ($data as $value) {$array[] = array($value['title']);}
 			return $array;
 		}
 	}

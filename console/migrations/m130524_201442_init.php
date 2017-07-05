@@ -27,7 +27,7 @@ class m130524_201442_init extends Migration
 
         $this->createTable('{{%tbl_post}}', [
             'id' => $this->primaryKey(),
-            'titulo' => $this->string(128)->notNull(),
+            'title' => $this->string(128)->notNull(),
             'url' => $this->string(128)->notNull(),
             'descripcion' => $this->string(512)->notNull(),
             'keyword' => $this->string(128),

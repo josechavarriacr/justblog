@@ -39,7 +39,7 @@ class MetaTagsPost extends yii\web\View
 			$userIp = Yii::$app->getRequest()->getUserIp();
 
 //Seo Tags
-			\Yii::$app->view->title = $model->titulo;
+			\Yii::$app->view->title = $model->title;
 			\Yii::$app->view->registerMetaTag([
 				'name' => 'robots',
 				'content' => 'index, follow',
@@ -64,7 +64,7 @@ class MetaTagsPost extends yii\web\View
 // Open Graph data
 			\Yii::$app->view->registerMetaTag([
 				'property' => 'og:title',
-				'content' => $model->titulo,
+				'content' => $model->title,
 				]);
 			\Yii::$app->view->registerMetaTag([
 				'property' => 'og:type',

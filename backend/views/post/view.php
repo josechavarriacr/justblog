@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<img src="<?=$model->img?>"
 				class="img-rounded center-block" alt="Cinque Terre"><hr></br>
-				<h1 class="heading"><?=$model->titulo;?></h1></br>
+				<h1 class="heading"><?=$model->title;?></h1></br>
 				<p><?=$model->text?></p>
 			</div>
 		</article>
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<a href="<?= Html::encode($prev['url']) ?>">
 							<img class="img-responsive" src="<?= Html::encode($prev['img']) ?>" alt="Cinque Terre">
 						</a>
-						<h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['titulo']) ?></a></h3>
+						<h3><a href="<?= Html::encode($prev['url']) ?>"><?= Html::encode($prev['title']) ?></a></h3>
 						<p><?= Html::encode(substr($prev['descripcion'],0,200)) ?></p>
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>
@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<a href="<?= Html::encode($next['url']) ?>">
 							<img class="img-responsive" src="<?=Html::encode($next['img'])?>" alt="Cinque Terre">
 						</a>
-						<h3><a href="<?= Html::encode($next['url']) ?>"><?= Html::encode($next['titulo']) ?></a></h3>
+						<h3><a href="<?= Html::encode($next['url']) ?>"><?= Html::encode($next['title']) ?></a></h3>
 						<p><?= Html::encode(substr($next['descripcion'], 0,200)) ?></p>
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>

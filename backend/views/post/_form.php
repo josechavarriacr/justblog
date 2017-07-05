@@ -20,7 +20,7 @@ use kartik\switchinput\SwitchInput;
                 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-lg btn-success' : 'btn btn-lg btn-primary']) ?>
             </div>
             <?= $form->field($model, 'status')->widget(SwitchInput::classname(), []) ?>
-            <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'descripcion')->textArea(['maxlength' => 500,'rows' => '4']) ?>
             <?= $form->field($model, 'keyword')->textInput(['maxlength' => true]) ?>

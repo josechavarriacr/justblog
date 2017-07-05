@@ -54,7 +54,7 @@ class PostController extends Controller
 
 		$query = Post::find()->where(['type'=>'post'])->andWhere(['status'=>1])->orderBy(['created_at'=>SORT_DESC]);
 		$countQuery = clone $query;
-		$data = ArrayHelper::map($countQuery->all(), 'url', 'titulo');
+		$data = ArrayHelper::map($countQuery->all(), 'url', 'title');
 		$pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>6]);
 
 		$models = $query->offset($pages->offset)
@@ -124,7 +124,7 @@ class PostController extends Controller
 
 			$query = Post::find()->where(['id'=>Post::getCategory($category)]);
 			$countQuery = clone $query;
-			$data = ArrayHelper::map($countQuery->all(), 'url', 'titulo');
+			$data = ArrayHelper::map($countQuery->all(), 'url', 'title');
 			$pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>6]);
 
 			$models = $query->offset($pages->offset)
@@ -160,7 +160,7 @@ class PostController extends Controller
 
 			$query = Post::find()->where(['id'=>Post::getTag($category)]);
 			$countQuery = clone $query;
-			$data = ArrayHelper::map($countQuery->all(), 'url', 'titulo');
+			$data = ArrayHelper::map($countQuery->all(), 'url', 'title');
 			$pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>6]);
 
 			$models = $query->offset($pages->offset)
@@ -215,7 +215,7 @@ class PostController extends Controller
 
 			foreach ($news as $post) {
 				$item = new Item();
-				$item->title = $post->titulo;
+				$item->title = $post->title;
 				$item->link = Url::to([$post->url], true);
 				$item->guid = Url::to([$post->url], true);
 				$item->description = HtmlPurifier::process(Markdown::process($post->descripcion));
