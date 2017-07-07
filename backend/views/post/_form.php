@@ -49,8 +49,10 @@ use kartik\switchinput\SwitchInput;
                 ]); ?>  
 
                 <?php if ($model->img): ?>
-                    <div class="img-preview">
-                        <?= Html::img($model->img, ['width'=>'50','height'=>'50']) ?>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <?= Html::img($model->img, ['width'=>'50','height'=>'50']) ?>
+                        </div>
                     </div>
                 <?php endif; ?>
                 <?= $form->field($model, 'file')->fileInput()?>

@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
 use yii\helpers\Html;
+use yii\helpers\FileHelper;
 
 
 class AboutController extends Controller

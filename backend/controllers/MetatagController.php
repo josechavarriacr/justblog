@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 class MetatagController extends Controller
 {
@@ -76,15 +77,18 @@ class MetatagController extends Controller
 			$model->ico = UploadedFile::getInstance($model, 'ico');
 			if(!empty($model->ico)){
 				$pathIco = Yii::getAlias('@web/uploads/profile/');
+				FileHelper::createDirectory('uploads/profile');
 				$model->ico->saveAS('uploads/profile/'.$nameIco.'.'.$model->ico->extension);
 				$model->icon = $pathIco.$nameIco.'.'.$model->ico->extension;
 			}
 
 			$model->img = UploadedFile::getInstance($model, 'img');
+			$NameImg = 'site';
 			if(!empty($model->img)){
 				$pathImg = Yii::getAlias('@web/uploads/profile/');
-				$model->img->saveAS('uploads/profile/'.$model->img->name);
-				$model->image = $pathImg.$model->img->name;
+				FileHelper::createDirectory('uploads/profile');
+				$model->img->saveAS('uploads/profile/'.$NameImg.'.'.$model->img->extension);
+				$model->image = $pathImg.$NameImg.'.'.$model->img->extension;
 			}
 
 			$model->save(false);

@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
 use yii\helpers\Html;
+use yii\helpers\FileHelper;
 use yii\web\Response;
 
 class PostController extends Controller
@@ -40,121 +41,124 @@ class PostController extends Controller
         ],
         ],
         ];
-    }
+      }
 
-    public function actions()
-    {
-    	return [
-    	'error' => [
-    	'class' => 'yii\web\ErrorAction',
-    	],
-    	];
-    }
+      public function actions()
+      {
+       return [
+       'error' => [
+       'class' => 'yii\web\ErrorAction',
+       ],
+       ];
+     }
 
-    public function actionIndex()
-    {
-    	$searchModel = new PostSearch();
-    	$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+     public function actionIndex()
+     {
+       $searchModel = new PostSearch();
+       $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-    	return $this->render('index', [
-    		'searchModel' => $searchModel,
-    		'dataProvider' => $dataProvider,
-    		]);
-    }
+       return $this->render('index', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        ]);
+     }
 
-    public function actionView($id)
-    {
-    	return $this->render('view', [
-    		'model' => $this->findModel($id),
-    		]);
-    }
+     public function actionView($id)
+     {
+       return $this->render('view', [
+        'model' => $this->findModel($id),
+        ]);
+     }
 
-    public function actionList($query)
-    {
-    	Yii::$app->response->format = Response::FORMAT_JSON;
+     public function actionList($query)
+     {
+       Yii::$app->response->format = Response::FORMAT_JSON;
 
-    	$items = [];
-    	foreach (Tag::find()->where(['like', 'name', $query])->asArray()->all() as $tag) {
-    		$items[] = ['name' => $tag['name']];
-    	}
+       $items = [];
+       foreach (Tag::find()->where(['like', 'name', $query])->asArray()->all() as $tag) {
+        $items[] = ['name' => $tag['name']];
+      }
 
-    	return $items;
+      return $items;
     }
 
     public function actionCreate()
     {
     	$model = new Post();
-
     	if ($model->load(Yii::$app->request->post()) ) {
-    		$imageName = time();
-    		$model->file = UploadedFile::getInstance($model, 'file');
-    		$path = Yii::getAlias('@web/uploads/meta/');
-    		if(!empty($model->file)){
-    			$model->file->saveAS('uploads/meta/'.$imageName.'.'.$model->file->extension);
-    			$model->img = $path.$imageName.'.'.$model->file->extension;
-    		}
-    		$model->created_at = time();
-    		$model->type ='post';
-    		$model->save(false);
-    		return $this->redirect(['view', 'id' => $model->id]);
-    	} else {
-    		return $this->render('create', [
-    			'model' => $model,
-    			]);
-    	}
+
+        $model->file = UploadedFile::getInstance($model, 'file');
+        $img = $model->id.'a'.time().'.'.$model->file->extension;
+        if(!empty($model->file)){
+          $path = Yii::getAlias('@web/uploads/meta/');
+          FileHelper::createDirectory('uploads/meta');
+          $model->file->saveAS('uploads/meta/'.$img);
+          $model->img = $path.$img;
+        }
+        $model->created_at = time();
+        $model->type ='post';
+        $model->save(false);
+        return $this->redirect(['view', 'id' => $model->id]);
+      } else {
+        return $this->render('create', [
+         'model' => $model,
+         ]);
+      }
     }
 
     public function actionUpdate($id)
     {
-    	$model = $this->findModel($id);
-    	$model->tags = Post::getTags($id);
-    	$model->categories = Post::getCategories($id);
+     $model = $this->findModel($id);
+     $model->tags = Post::getTags($id);
+     $model->categories = Post::getCategories($id);
 
-    	if ($model->load(Yii::$app->request->post()) ) {
-    		$imageName = time();
-    		$model->file = UploadedFile::getInstance($model, 'file');
-    		$path = Yii::getAlias('@web/uploads/meta/');
-    		if(!empty($model->file)){
-    			$model->file->saveAS('uploads/meta/'.$imageName.'.'.$model->file->extension);
-    			$model->img = $path.$imageName.'.'.$model->file->extension;
-    		}
-    		
-    		$model->save(false);
-    		return $this->redirect(['view', 'id' => $model->id]);
+     if ($model->load(Yii::$app->request->post()) ) {
 
-    	} else {
-    		return $this->render('update', [
-    			'model' => $model,
-    			]);
-    	}
+      $model->file = UploadedFile::getInstance($model, 'file');
+      $img = $model->id.'a'.time().'.'.$model->file->extension;
+      if(!empty($model->file)){
+        $path = Yii::getAlias('@web/uploads/meta/');
+        FileHelper::createDirectory('uploads/meta');
+        $model->file->saveAS('uploads/meta/'.$img);
+        $model->img = $path.$img;
+      }
+
+      $model->save(false);
+      return $this->redirect(['view', 'id' => $model->id]);
+
+    } else {
+      return $this->render('update', [
+       'model' => $model,
+       ]);
     }
+  }
 
-    public function actionDelete($id)
-    {
-    	$this->findModel($id)->delete();
+  public function actionDelete($id)
+  {
+   $this->findModel($id)->delete();
 
-    	return $this->redirect(['index']);
-    }
+   return $this->redirect(['index']);
+ }
 
-    protected function findModel($id)
-    {
-    	if (($model = Post::findOne($id)) !== null) {
-    		return $model;
-    	} else {
-    		throw new NotFoundHttpException('The requested page does not exist.');
-    	}
-    }
+ protected function findModel($id)
+ {
+   if (($model = Post::findOne($id)) !== null) {
+    return $model;
+  } else {
+    throw new NotFoundHttpException('The requested page does not exist.');
+  }
+}
 
-    public function actionUrl($url)
-    { 
-    	$model = Post::find()->where(['url'=>$url])->one();
-    	if (!is_null($model)) {
-    		return $this->render('view', [
-    			'model' => $model,
-    			]);      
-    	} else {
+public function actionUrl($url)
+{ 
+ $model = Post::find()->where(['url'=>$url])->one();
+ if (!is_null($model)) {
+  return $this->render('view', [
+   'model' => $model,
+   ]);      
+} else {
     		// return $this->redirect('site/error');
-    		throw new NotFoundHttpException('The requested page does not exist.');
-    	}
-    }
+  throw new NotFoundHttpException('The requested page does not exist.');
+}
+}
 }

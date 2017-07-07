@@ -9,6 +9,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 class ProfileController extends Controller
 {
@@ -71,10 +72,12 @@ class ProfileController extends Controller
         if ($model->load(Yii::$app->request->post()) ) {
 
             $model->file = UploadedFile::getInstance($model, 'file');
+            $img = $model->id.'a'.time().'.'.$model->file->extension;
             if(!empty($model->file)){
                 $path = Yii::getAlias('@web/uploads/profile/');
-                $model->file->saveAs('uploads/profile/'.$model->file->name);
-                $model->image = $path.$model->file->name;
+                FileHelper::createDirectory('uploads/profile');
+                $model->file->saveAs('uploads/profile/'.$img);
+                $model->image = $path.$img;
             }
 
             $model->save(false);
