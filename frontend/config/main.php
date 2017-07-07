@@ -19,8 +19,14 @@ return [
         'social' => [
             'class' => 'kartik\social\Module',
                 'disqus' => [
-                    'settings' => ['shortname' => 'DISQUS_SHORTNAME'] // default settings
+                	'settings' => ['shortname' => 'DISQUS_SHORTNAME'] // default settings
                         ],
+                'twitter' => [
+            		'screenName' => 'josechavarriacr'
+       					],
+       			'github' => [
+          			 'settings' => ['user'=>'josechavarriacr']
+        				],
                     ],
                 ],
     'components' => [

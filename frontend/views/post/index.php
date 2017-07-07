@@ -53,7 +53,6 @@ Yii::$app->site->getIcon();
 
 
 
-
 				</div><!-- dic end row -->
 			</div><!-- div end container -->
 		</div>

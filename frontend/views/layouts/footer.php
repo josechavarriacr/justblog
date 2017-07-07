@@ -17,7 +17,7 @@ $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
 					<p>Code licensed <a href="https://github.com/josechavarriacr/justblog/blob/master/LICENSE.md" target="_blank" rel="license">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license">CC BY 3.0</a></p>
 				</div>
 				
-				<?php if (!is_null($profile)): ?>
+				<?php if (!empty($profile)): ?>
 					<div class="col-md-12 col-sm-4 item social">
 						<a href="<?=$profile->facebook;?>" target="_blank"><i class="fa fa-facebook"></i></a>
 						<a href="<?=$profile->twitter;?>" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -28,6 +28,5 @@ $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
 			</div>
 			<p class="copyright">&copy; Jose Chavaría <?= date('Y') ?></p>
 		</div>
-	</div>
-</footer>
+	</footer>
 </div>

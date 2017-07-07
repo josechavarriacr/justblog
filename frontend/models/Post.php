@@ -33,8 +33,8 @@ class Post extends \yii\db\ActiveRecord
    [['title', 'url', 'descripcion', 'text'], 'required'],
    [['file'],'file'],
    [['text'], 'string'],
-   [['keyword'], 'string', 'max' =>50],
-   [['title'], 'string', 'max' => 128],
+   [['repo'], 'string', 'max' =>64],
+   [['title','keyword'], 'string', 'max' => 128],
    [['descripcion'], 'string', 'max' => 500],
    [['url','img'], 'string', 'max' => 128],
    ];
@@ -48,6 +48,7 @@ class Post extends \yii\db\ActiveRecord
    'url' => 'Url',
    'descripcion' => 'Descripcion',
    'keyword' => 'Keyword',
+   'repo' => 'GitHub Repo',
    'text' => 'Text',
    'file' => 'Imagen destacada',
    ];

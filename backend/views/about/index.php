@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>
                             <?= Html::a($var->id, [$var->id], ['class' => 'profile-link']) ?>
                         </td>
-                        <td><?= $var->titulo ?></td>
+                        <td><?= $var->title ?></td>
                         <td><?= substr($var->descripcion, 0, 150 )?></td>
                         <td><?= $var->type?></td>
                         <td>
