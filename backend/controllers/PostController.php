@@ -88,12 +88,12 @@ class PostController extends Controller
     	if ($model->load(Yii::$app->request->post()) ) {
 
         $model->file = UploadedFile::getInstance($model, 'file');
-        $img = $model->id.'a'.time().'.'.$model->file->extension;
+        $img = $model->id.'_'.time();
         if(!empty($model->file)){
           $path = Yii::getAlias('@web/uploads/meta/');
           FileHelper::createDirectory('uploads/meta');
-          $model->file->saveAS('uploads/meta/'.$img);
-          $model->img = $path.$img;
+          $model->file->saveAS('uploads/meta/'.$img.'.'.$model->file->extension);
+          $model->img = $path.$img.'.'.$model->file->extension;
         }
         $model->created_at = time();
         $model->type ='post';
@@ -115,12 +115,12 @@ class PostController extends Controller
      if ($model->load(Yii::$app->request->post()) ) {
 
       $model->file = UploadedFile::getInstance($model, 'file');
-      $img = $model->id.'a'.time().'.'.$model->file->extension;
+      $img = $model->id.'_'.time();
       if(!empty($model->file)){
         $path = Yii::getAlias('@web/uploads/meta/');
         FileHelper::createDirectory('uploads/meta');
-        $model->file->saveAS('uploads/meta/'.$img);
-        $model->img = $path.$img;
+        $model->file->saveAS('uploads/meta/'.$img.'.'.$model->file->extension);
+        $model->img = $path.$img.'.'.$model->file->extension;
       }
 
       $model->save(false);
