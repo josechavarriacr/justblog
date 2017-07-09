@@ -71,4 +71,6 @@ home -> http://localhost/justblog
 
 admin -> http://localhost/justblog/admin
 
+# Try Live
+
 
