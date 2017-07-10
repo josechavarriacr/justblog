@@ -17,9 +17,7 @@
 					</div>
 				</div><hr>
 
-				<div class="row">					
-					<p><?=$model->description;?></p>
-				</div>
+				<p><?=$model->description;?></p>
 
 			</div>
 		</article>
