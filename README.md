@@ -73,4 +73,7 @@ admin -> http://localhost/justblog/admin
 
 # Try Live
 
+home -> http://justblog.site
+
+admin -> http://justblog.site/admin
 
