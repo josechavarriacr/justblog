@@ -5,9 +5,9 @@ use yii\widgets\DetailView;
 use backend\models\Post;
 
 
-$this->title = $model->titulo;
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'About', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $model->titulo;
+$this->params['breadcrumbs'][] = $model->title;
 ?>
 
 <div class="about-view">
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $model->titulo;
 					<img src="<?=$model->img?>" class="img-rounded center-block">
 				<?php endif ;?>
 				<hr>
-				<h1 class="heading"><?=$model->titulo;?></h1></br>
+				<h1 class="heading"><?=$model->title;?></h1></br>
 				<p><?=$model->text?></p>
 			</div>
 		</article>
