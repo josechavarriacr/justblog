@@ -23,4 +23,8 @@ Deny from all
 </Files>
 
 # Deny accessing dot files
+<<<<<<< HEAD
 RewriteRule (^\.|/\.) - [F]
+=======
+RewriteRule (^\.|/\.) - [F]
+>>>>>>> origin/master
