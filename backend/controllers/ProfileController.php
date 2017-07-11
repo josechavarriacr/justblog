@@ -72,12 +72,12 @@ class ProfileController extends Controller
         if ($model->load(Yii::$app->request->post()) ) {
 
             $model->file = UploadedFile::getInstance($model, 'file');
-            $img = $model->id.'a'.time().'.'.$model->file->extension;
+            $img = $model->id.'a'.time();
             if(!empty($model->file)){
                 $path = Yii::getAlias('@web/uploads/profile/');
                 FileHelper::createDirectory('uploads/profile');
-                $model->file->saveAs('uploads/profile/'.$img);
-                $model->image = $path.$img;
+                $model->file->saveAs('uploads/profile/'.$img.'.'.$model->file->extension);
+                $model->image = $path.$img.'.'.$model->file->extension;
             }
 
             $model->save(false);
