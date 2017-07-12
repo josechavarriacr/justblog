@@ -1,6 +1,6 @@
 JustBlog
 ===============================
-[![Latest Stable Version](https://poser.pugx.org/josechavarriacr/justblog/version)](https://packagist.org/packages/josechavarriacr/justblog)
+[![Latest Stable Version](https://poser.pugx.org/josechavarriacr/justblog/v/stable.svg)](https://packagist.org/packages/josechavarriacr/justblog)
 [![License](https://poser.pugx.org/josechavarriacr/justblog/license)](https://packagist.org/packages/josechavarriacr/justblog)
 [![Total Downloads](https://poser.pugx.org/josechavarriacr/justblog/downloads)](https://packagist.org/packages/josechavarriacr/justblog)
 [![Monthly Downloads](https://poser.pugx.org/josechavarriacr/justblog/d/monthly)](https://packagist.org/packages/josechavarriacr/justblog)
