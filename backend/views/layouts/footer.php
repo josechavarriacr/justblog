@@ -13,7 +13,7 @@ $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
 						<a href="<?=Yii::$app->urlManagerFrontend->createUrl('privacy')?>">Privacy</a>
 						<a href="<?=Yii::$app->urlManagerFrontend->createUrl('ama')?>">AMA</a>
 					</div>
-					<p>Desarrollado con pasión y gallo pinto para una mejor web, <a href="https://github.com/josechavarriacr/justblog" target="_blank">¡Forkealo!</a></p>
+					<p>Developed with passion and gallo pinto for a better web, <a href="https://github.com/josechavarriacr/justblog" target="_blank">¡Forkealo!</a></p>
 					<p>Code licensed <a href="https://github.com/josechavarriacr/justblog/blob/master/LICENSE.md" target="_blank" rel="license">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license">CC BY 3.0</a></p>
 				</div>
 				

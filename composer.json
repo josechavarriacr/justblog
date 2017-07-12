@@ -1,10 +1,17 @@
 {
-    "name": "yiisoft/yii2-app-advanced",
-    "description": "Yii 2 Advanced Project Template",
-    "keywords": ["yii2", "framework", "advanced", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "josechavarriacr/justblog",
+    "description": "Yii 2 platform for blogging",
+    "keywords": ["yii2", "framework", "advanced", "blog","cms"],
+    "homepage": "http://justblog.site",
     "type": "project",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
+     "authors": [
+        {
+            "name": "Jose Chavarría",
+            "email": "joserafaelcascante@gmail.com",
+            "homepage": "https://chavarria.cr/"
+        }
+    ],
     "support": {
         "issues": "https://github.com/yiisoft/yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
