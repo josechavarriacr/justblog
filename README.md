@@ -4,7 +4,6 @@ JustBlog
 [![License](https://poser.pugx.org/josechavarriacr/justblog/license)](https://packagist.org/packages/josechavarriacr/justblog)
 [![Total Downloads](https://poser.pugx.org/josechavarriacr/justblog/downloads)](https://packagist.org/packages/josechavarriacr/justblog)
 [![Monthly Downloads](https://poser.pugx.org/josechavarriacr/justblog/d/monthly)](https://packagist.org/packages/josechavarriacr/justblog)
-[![Daily Downloads](https://poser.pugx.org/josechavarriacr/justblog/d/daily)](https://packagist.org/packages/josechavarriacr/justblog)
 
 Simple platform for blogging based in Yii2
 
