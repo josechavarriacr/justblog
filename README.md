@@ -1,5 +1,10 @@
 JustBlog
 ===============================
+[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-widget-typeahead/v/stable)](https://packagist.org/packages/kartik-v/yii2-widget-typeahead)
+[![License](https://poser.pugx.org/kartik-v/yii2-widget-typeahead/license)](https://packagist.org/packages/kartik-v/yii2-widget-typeahead)
+[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-widget-typeahead/downloads)](https://packagist.org/packages/kartik-v/yii2-widget-typeahead)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-widget-typeahead/d/monthly)](https://packagist.org/packages/kartik-v/yii2-widget-typeahead)
+[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-widget-typeahead/d/daily)](https://packagist.org/packages/kartik-v/yii2-widget-typeahead)
 
 Simple platform for blogging based in Yii2
 
