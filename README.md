@@ -6,7 +6,7 @@ JustBlog
 [![Monthly Downloads](https://poser.pugx.org/josechavarriacr/justblog/d/monthly)](https://packagist.org/packages/josechavarriacr/justblog)
 [![Daily Downloads](https://poser.pugx.org/josechavarriacr/justblog/d/daily)](https://packagist.org/packages/josechavarriacr/justblog)
 
-Simple platform for blogging based in Yii2
+Simple platform for blogging based in Yii2.
 
 # Try Live
 
