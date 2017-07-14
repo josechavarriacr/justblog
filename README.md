@@ -24,7 +24,7 @@ INSTALLATION
 ------------
 
 1- git clone https://github.com/josechavarriacr/justblog.git
-or dowloaded de zip file from https://justblog.site/justblog.zip 
+or dowloaded de zip file from http://justblog.site/justblog.zip 
 
 2- composer update
 
