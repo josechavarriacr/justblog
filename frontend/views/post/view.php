@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use frontend\models\Post;
 use kartik\ipinfo\IpInfo;
 use kartik\popover\PopoverX;
 use kartik\social\Disqus;
