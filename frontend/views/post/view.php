@@ -9,8 +9,8 @@ use frontend\components\Analytics;
 Yii::$app->meta->getMetaTags($model->id);
 ?>
 <div class="post-view">
-	<code>Página generada en <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
-	<p>Me visitas desde<?=IpInfo::widget([
+	<code>Page generated on <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
+	<p><?=IpInfo::widget([
 		'flagWrapperOptions' => [
 		'class' => 'btn btn-lg btn-default'
 		],
@@ -35,7 +35,7 @@ Yii::$app->meta->getMetaTags($model->id);
 
 						<hr>
 
-						<p>Redactado en <span class="label label-success"><?=Yii::$app->formatter->asDate($model->created_at);?></span></p>
+						<p><span class="label label-success"><?=Yii::$app->formatter->asDate($model->created_at);?></span></p>
 						<h1 class="heading"><?=$model->title;?></h1>
 						<p><?=$model->text?></p>
 
