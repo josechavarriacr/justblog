@@ -55,7 +55,7 @@ class LogsController extends Controller
 
         $query = Logs::find()->orderBy(['id' => SORT_DESC]);
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>40]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>50]);
         $model = $query->offset($pages->offset)
         ->limit($pages->limit)
         ->all();

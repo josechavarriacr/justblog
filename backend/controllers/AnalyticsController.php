@@ -10,14 +10,14 @@ use backend\models\Logs;
 
 class AnalyticsController extends Controller
 {
-	
-	public function behaviors()
-	{	
-		return [
-		'access' => [
-		'class' => AccessControl::className(),
-		'rules' => [
-		[
+    
+    public function behaviors()
+    {   
+        return [
+        'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+        [
         'actions' => ['login', 'error'],//actions without loggin
         'allow' => true,
         ],
@@ -38,11 +38,11 @@ class AnalyticsController extends Controller
 
     public function actions()
     {
-    	return [
-    	'error' => [
-    	'class' => 'yii\web\ErrorAction',
-    	],
-    	];
+        return [
+        'error' => [
+        'class' => 'yii\web\ErrorAction',
+        ],
+        ];
     }
 
     public function actionCharts()
@@ -57,6 +57,8 @@ class AnalyticsController extends Controller
         $device = Logs::getDevice();
         $type = Logs::getType();
         $new = Logs::getNew();
+        $ips = Logs::getIps();
+
 
         return $this->render('charts', [
             'visits' => $visits,
@@ -69,6 +71,7 @@ class AnalyticsController extends Controller
             'device' => $device,
             'type' => $type,
             'new' => $new,
+            'ips' => $ips,
             ]);
     }
 }

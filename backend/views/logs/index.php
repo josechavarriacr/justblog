@@ -4,6 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
+use kartik\icons\Icon;
+use backend\models\Logs;
+
+Icon::map($this);
 
 $this->title = 'Visits';
 $this->params['breadcrumbs'][] = $this->title;
@@ -51,6 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <th>Referrer</th>
                     <th>New</th>
                     <th>Lang</th>
+                    <th>Country</th>
+                    <th>Flag</th>
                     <th>Method</th>
                     <th>Browser</th>
                     <th>Os</th>
@@ -68,10 +74,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Html::a($log->id, [$log->id], ['class' => 'profile-link']) ?>
                         </td>
                         <td>
-                        <a href="<?= Url::to(['/logs/activity/', 'ip' => $log->ip]) ?>" 
-                               class="profile-link"><?=$log->ip?></a>
-                           </td>
-                           <td>
+                            <a href="<?= Url::to(['/logs/activity/', 'ip' => $log->ip]) ?>" 
+                             class="profile-link"><?=$log->ip?></a>
+                         </td>
+                         <td>
                             <?= Html::a($log->module, [$log->module], ['class' => 'profile-link']) ?>
                         </td>
                         <td>
@@ -85,6 +91,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php endif;?>
                         </td>
                         <td><?= $log->language ?></td>
+                        <td><?= Logs::getCountry($log['ip']) ?></td>
+                        <td><?= Icon::show(Logs::getFlag($log['ip']),  ['class'=>'fa-2x'], Icon::FI) ?></td>
                         <td><?= $log->method ?></td>
                         <td  width="90px"><?= $log->browser ?></td>
                         <td><?= $log->os ?></td>
