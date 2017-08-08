@@ -3,53 +3,53 @@ body {
 }
 
 .bandera {
-	margin: 0em;
-	height: 150px;
-	width: 250px;	
-	float: none;
+  margin: 0em;
+  height: 150px;
+  width: 260px; 
+  float: none;
 }
 
 .nicaragua {
-	background: -webkit-linear-gradient(top, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
-	background: linear-gradient(to bottom, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
+  background: -webkit-linear-gradient(top, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
+  background: linear-gradient(to bottom, #0067c6 33%, #fff 33%, #fff 66%, #0067c6 66%);
 }
 
 .guatemala {
-	background: -webkit-linear-gradient(left, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
-	background: linear-gradient(to right, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
+  background: -webkit-linear-gradient(left, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
+  background: linear-gradient(to right, #4897d2 33%, #fff 33%, #fff 66%, #4897d2 66%);
 }
 
 .costarica {
-	background: -webkit-linear-gradient(top, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);
-	background: linear-gradient(to bottom, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);		
+  background: -webkit-linear-gradient(top, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);
+  background: linear-gradient(to bottom, #022a7f 17%, #fff 17%, #fff 33%, #ce1127 33%, #ce1127 66%, #fff 66%, #fff 83%, #022a7f 83%, #022a7f 83%);    
 }
 
 .panama {
-	background: #fff;
+  background: #fff;
 }
 
 .panama:before {
-	position:relative;
-	display:block;
-	content:"";
-	padding:0px 0px 0 0px;
-	width:50%;
-	height:50%;
-	top:75px;
-	left:0;
-	background: #015293;
+  position:relative;
+  display:block;
+  content:"";
+  padding:0px 0px 0 0px;
+  width:50%;
+  height:50%;
+  top:75px;
+  left:0;
+  background: #015293;
 }
 
 .panama:after {
-	position:relative;
-	display:block;
-	content:"";
-	padding:0px 0px 0 0px;
-	width:50%;
-	height:50%;
-	top:-365px;
-	left:100px;
-	background: #d31134;
+  position:relative;
+  display:block;
+  content:"";
+  padding:0px 0px 0 0px;
+  width:50%;
+  height:50%;
+  top:-365px;
+  left:100px;
+  background: #d31134;
 }
 
 .estrella-azul {
@@ -167,8 +167,8 @@ body {
 }
 
 .honduras {
-	background: -webkit-linear-gradient(top, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
-	background: linear-gradient(to bottom, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
+  background: -webkit-linear-gradient(top, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
+  background: linear-gradient(to bottom, #0073ce 33%, #fff 33%, #fff 66%, #0073ce 66%);
 }
 
 .estrella-1 {
@@ -457,8 +457,8 @@ body {
 }
 
 .elsalvador {
-	background: -webkit-linear-gradient(top, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
-	background: linear-gradient(to bottom, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
+  background: -webkit-linear-gradient(top, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
+  background: linear-gradient(to bottom, #1047ae 33%, #fff 33%, #fff 66%, #1047ae 66%);
 }
 
 .texto {
