@@ -17,9 +17,9 @@ class MetaTagsPost extends yii\web\View
 		}
 	}
 	
-	protected function findSite($id)
+	protected function findSite()
 	{
-		if (($model = Metatag::findOne($id)) !== null) {
+		if (($model = Metatag::find()->orderBy('id ASC')->limit(1)->one() ) !== null) {
 			return $model;
 		} else {
 			// throw new NotFoundHttpException('The requested page does not exist.');
@@ -30,12 +30,16 @@ class MetaTagsPost extends yii\web\View
 		$model = $this->findModel($id);
 		if (!is_null($model)) { //start if
 
+//load img for empty value
+			if(is_null($model->img)){
+				$var = $this->findSite();
+				$model->img=$var->img;
+			}
+
 //Params
 			$uri = Yii::$app->getRequest()->absoluteUrl;
-
 			$domain = explode(Yii::$app->request->url, $uri);
 			$domain = implode($domain);
-
 			$userIp = Yii::$app->getRequest()->getUserIp();
 
 //Seo Tags
