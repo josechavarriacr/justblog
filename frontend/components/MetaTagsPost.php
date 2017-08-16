@@ -33,7 +33,7 @@ class MetaTagsPost extends yii\web\View
 //load img for empty value
 			if(is_null($model->img)){
 				$var = $this->findSite();
-				$model->img=$var->img;
+				$model->img=$var->image;
 			}
 
 //Params
