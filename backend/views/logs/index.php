@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                              class="profile-link"><?=$log->ip?></a>
                          </td>
                          <td>
-                            <?= Html::a($log->module, [$log->module], ['class' => 'profile-link']) ?>
+                            <?= Html::a(substr($log->module, 0, 30 ), [$log->module], ['class' => 'profile-link']) ?>
                         </td>
                         <td>
                             <?= Html::a($log->referrer, $log->referrer, ['class' => 'profile-link']) ?>
