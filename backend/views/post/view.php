@@ -22,6 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 		<div class="row">
 			<article class="blog">
+				<?= Html::a('<span class="glyphicon glyphicon-zoom-in"></span> View post', Yii::$app->urlManagerFrontend->createAbsoluteUrl(['post/'.$model->url]), ['class' => 'btn btn-info']) ?>
+				
 				<p><?=Yii::$app->formatter->asDate($model->created_at);?></p>
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<?php if ($model->img): ?>
