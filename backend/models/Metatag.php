@@ -21,7 +21,7 @@ class Metatag extends \yii\db\ActiveRecord
         [['ico'], 'file', 'skipOnEmpty' => true, 'extensions' => 'ico'],
         [['id_user'], 'integer'],
         [['title', 'url', 'category', 'icon', 'image'], 'string', 'max' => 50],
-        [['description', 'keywords'], 'string', 'max' => 100],
+        [['description', 'keywords'], 'string', 'max' => 150],
         ];
     }
 
