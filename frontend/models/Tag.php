@@ -2,8 +2,6 @@
 
 namespace frontend\models;
 
-use Yii;
-
 class Tag extends \yii\db\ActiveRecord
 {
 

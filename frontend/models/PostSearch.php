@@ -2,10 +2,8 @@
 
 namespace frontend\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Post;
 
 class PostSearch extends Post
 {
@@ -24,7 +22,7 @@ class PostSearch extends Post
 
     public function search($params)
     {
-        $query = Post::find()->orderBy(['created_at'=>SORT_DESC]);
+        $query = Post::find()->orderBy(['created_at' => SORT_DESC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

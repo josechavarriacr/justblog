@@ -2,8 +2,6 @@
 
 namespace frontend\models;
 
-use Yii;
-
 class Logs extends \yii\db\ActiveRecord
 {
     public static function tableName()
