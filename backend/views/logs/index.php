@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="visit-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
    <!--  <p>
         <?= Html::a('Create Visit', ['create'], ['class' => 'btn btn-success']) ?>
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($model as $log) : ?>
+                <?php foreach ($model as $log) : ?>
                     <tr>
                         <td>
                             <?= Html::a($log->id, [$log->id], ['class' => 'profile-link']) ?>
@@ -78,13 +78,13 @@ $this->params['breadcrumbs'][] = $this->title;
                              class="profile-link"><?=$log->ip?></a>
                          </td>
                          <td>
-                            <?= Html::a(substr($log->module, 0, 30 ), [$log->module], ['class' => 'profile-link']) ?>
+                            <?= Html::a(substr($log->module, 0, 30), [$log->module], ['class' => 'profile-link']) ?>
                         </td>
                         <td>
                             <?= Html::a($log->referrer, $log->referrer, ['class' => 'profile-link']) ?>
                         </td>
                         <td>
-                            <?php if($log->new): ?>
+                            <?php if ($log->new): ?>
                                 <span class="label label-success">New</span>
                             <?php else: ?>
                                 <span class="label label-default">Back</span>
@@ -92,13 +92,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         </td>
                         <td><?= $log->language ?></td>
                         <td><?= Logs::getCountry($log['ip']) ?></td>
-                        <td><?= Icon::show(Logs::getFlag($log['ip']),  ['class'=>'fa-2x'], Icon::FI) ?></td>
+                        <td><?= Icon::show(Logs::getFlag($log['ip']), ['class'=>'fa-2x'], Icon::FI) ?></td>
                         <td><?= $log->method ?></td>
                         <td  width="90px"><?= $log->browser ?></td>
                         <td><?= $log->os ?></td>
                         <td><?= $log->device ?></td>
                         <td>
-                            <?php switch($log->type): 
+                            <?php switch ($log->type):
                             case 'mobile': ?>
                             <span style="font-size: 15px" class="badge progress-bar-danger"><?=$log->type?></span>
                             <?php break;?>

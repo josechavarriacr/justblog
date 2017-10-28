@@ -9,7 +9,6 @@ use backend\models\Post;
 
 class PostSearch extends Post
 {
-
     public function rules()
     {
         return [
@@ -25,7 +24,7 @@ class PostSearch extends Post
 
     public function search($params)
     {
-        $query = Post::find()->where(['type'=>'post'])->orderBy(['status'=>SORT_DESC,'created_at'=>SORT_DESC]);       
+        $query = Post::find()->where(['type'=>'post'])->orderBy(['status'=>SORT_DESC,'created_at'=>SORT_DESC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

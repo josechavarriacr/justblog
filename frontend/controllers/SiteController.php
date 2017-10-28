@@ -22,15 +22,15 @@ use kartik\growl\Growl;
 
 class SiteController extends Controller
 {
-	public function behaviors()
-	{
+    public function behaviors()
+    {
         // Analytics::init();
-		return [
-		'access' => [
-		'class' => AccessControl::className(),
-		'only' => ['logout', 'signup','requestPasswordReset','resetPassword','contact'],
-		'rules' => [
-		[
+        return [
+        'access' => [
+        'class' => AccessControl::className(),
+        'only' => ['logout', 'signup','requestPasswordReset','resetPassword','contact'],
+        'rules' => [
+        [
         'actions' => ['signup'],//allows without login
         'allow' => false, //true for use singup
         'roles' => ['?'],
@@ -53,263 +53,266 @@ class SiteController extends Controller
 
     public function actions()
     {
-    	return [
-    	'error' => [
-    	'class' => 'yii\web\ErrorAction',
-    	],
-    	'captcha' => [
-    	'class' => 'yii\captcha\CaptchaAction',
-    	'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-    	],
-    	];
+        return [
+        'error' => [
+        'class' => 'yii\web\ErrorAction',
+        ],
+        'captcha' => [
+        'class' => 'yii\captcha\CaptchaAction',
+        'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+        ],
+        ];
     }
 
     public function actionIndex()
     {
-    	$query = Post::find()->orderBy(['created_at'=>SORT_DESC]);
-    	$countQuery = clone $query;
-    	$pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $query = Post::find()->orderBy(['created_at'=>SORT_DESC]);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
 
-    	$models = $query->offset($pages->offset)
-    	->limit($pages->limit)
-    	->all();
+        $models = $query->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
 
-    	return $this->render('index',[
-    		'models' => $models,
-    		'pages' => $pages,]);
+        return $this->render('index', [
+            'models' => $models,
+            'pages' => $pages,]);
     }
 
     protected function findModel($id)
     {
-    	if (($model = Post::findOne($id)) !== null) {
-    		return $model;
-    	} else {
-    		throw new NotFoundHttpException('The requested page does not exist.');
-    	}
+        if (($model = Post::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     public function actionLogin()
     {
-    	$profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
-    	if (!is_null($profile)) {
-    		Growl::widget([
-    			'type' => Growl::TYPE_GROWL,
-    			'title' => 'Ups!',
-    			'icon' => "$profile->image",
-    			'iconOptions' => ['class'=>'img-ico'],
-    			'body' => '</br>Try again.',
-    			'showSeparator' => false,
-    			'delay' => 0,
-    			'pluginOptions' => [
-    			'icon_type'=>'image',
-    			'showProgressbar' => false,
-    			'placement' => [
-    			'from' => 'top',
-    			'align' => 'right',
-    			],
-    			]
-    			]);
-    	}
-    	return $this->render('index');
+        $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
+        if (!is_null($profile)) {
+            Growl::widget([
+                'type' => Growl::TYPE_GROWL,
+                'title' => 'Ups!',
+                'icon' => "$profile->image",
+                'iconOptions' => ['class'=>'img-ico'],
+                'body' => '</br>Try again.',
+                'showSeparator' => false,
+                'delay' => 0,
+                'pluginOptions' => [
+                'icon_type'=>'image',
+                'showProgressbar' => false,
+                'placement' => [
+                'from' => 'top',
+                'align' => 'right',
+                ],
+                ]
+                ]);
+        }
+        return $this->render('index');
     }
 
     public function actionAdmin()
     {
-    	$profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
-    	if (!is_null($profile)) {
-    		Growl::widget([
-    			'type' => Growl::TYPE_GROWL,
-    			'title' => 'Ups!',
-    			'icon' => "$profile->image",
-    			'iconOptions' => ['class'=>'img-ico'],
-    			'body' => '</br>Try again.',
-    			'showSeparator' => false,
-    			'delay' => 0,
-    			'pluginOptions' => [
-    			'icon_type'=>'image',
-    			'showProgressbar' => false,
-    			'placement' => [
-    			'from' => 'top',
-    			'align' => 'right',
-    			],
-    			]
-    			]);
-    	}
-    	return $this->render('index');
+        $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
+        if (!is_null($profile)) {
+            Growl::widget([
+                'type' => Growl::TYPE_GROWL,
+                'title' => 'Ups!',
+                'icon' => "$profile->image",
+                'iconOptions' => ['class'=>'img-ico'],
+                'body' => '</br>Try again.',
+                'showSeparator' => false,
+                'delay' => 0,
+                'pluginOptions' => [
+                'icon_type'=>'image',
+                'showProgressbar' => false,
+                'placement' => [
+                'from' => 'top',
+                'align' => 'right',
+                ],
+                ]
+                ]);
+        }
+        return $this->render('index');
     }
 
     public function actionLogout()
     {
-    	Yii::$app->user->logout();
+        Yii::$app->user->logout();
 
-    	return $this->goHome();
+        return $this->goHome();
     }
 
     public function actionContact()
     {
-    	$model = new ContactForm();
-    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-    		if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-    			Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-    		} else {
-    			Yii::$app->session->setFlash('error', 'There was an error sending email.');
-    		}
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+            } else {
+                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+            }
 
-    		return $this->refresh();
-    	} else {
-    		return $this->render('contact', [
-    			'model' => $model,
-    			]);
-    	}
+            return $this->refresh();
+        } else {
+            return $this->render('contact', [
+                'model' => $model,
+                ]);
+        }
     }
 
-    protected function ipUser(){
-    	$profile = profile::find()->orderBy('id ASC')->limit(1)->one();
-    	$ip = Yii::$app->getRequest()->getUserIP();
-    	if (!is_null($profile->ip) && $profile->ip == $ip) {
-    		return false;
-    	}else{
-    		return true;
-    	}
+    protected function ipUser()
+    {
+        $profile = profile::find()->orderBy('id ASC')->limit(1)->one();
+        $ip = Yii::$app->getRequest()->getUserIP();
+        if (!is_null($profile->ip) && $profile->ip == $ip) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
-    protected function findAbout($var){
-    	$model = Post::find()->where(['type'=>$var])->andWhere(['status'=>1])
-    	->orderBy(['id'=>SORT_ASC])->limit(1)->one();
+    protected function findAbout($var)
+    {
+        $model = Post::find()->where(['type'=>$var])->andWhere(['status'=>1])
+        ->orderBy(['id'=>SORT_ASC])->limit(1)->one();
 
-    	if (!is_null($model)) {
+        if (!is_null($model)) {
+            if ($this->ipUser()) {
+                $model->count = $model->count + 1;
+                $model->save(false);
+            }
 
-    		if($this->ipUser()){
-    			$model->count = $model->count + 1;
-    			$model->save(false);
-    		}
-
-    		return $model;
-    	}else{
-    		return null;
-    	} 
+            return $model;
+        } else {
+            return null;
+        }
     }
 
-    public function actionAbout(){
-    	$model = $this->findAbout('about');
+    public function actionAbout()
+    {
+        $model = $this->findAbout('about');
 
-    	return $this->render('about', [
-    		'model' => $model,
-    		]);
+        return $this->render('about', [
+            'model' => $model,
+            ]);
     }
 
-    public function actionPrivacy(){
-    	$model = $this->findAbout('privacy');
+    public function actionPrivacy()
+    {
+        $model = $this->findAbout('privacy');
 
-    	return $this->render('privacy',[
-    		'model' => $model,
-    		]);
+        return $this->render('privacy', [
+            'model' => $model,
+            ]);
     }
 
-    public function actionAma(){
-    	$model = $this->findAbout('ama');
+    public function actionAma()
+    {
+        $model = $this->findAbout('ama');
 
-    	return $this->render('ama',[
-    		'model' => $model,
-    		]);
+        return $this->render('ama', [
+            'model' => $model,
+            ]);
     }
 
-    public function actionMe(){
-    	$model = Profile::find()->orderBy(['id'=>SORT_ASC])->limit(1)->one();
+    public function actionMe()
+    {
+        $model = Profile::find()->orderBy(['id'=>SORT_ASC])->limit(1)->one();
 
-    	return $this->render('me',[
-    		'model' => $model,
-    		]);
+        return $this->render('me', [
+            'model' => $model,
+            ]);
     }
 
-    public function actionWpAdmin(){
-    	$profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
-    	if (!is_null($profile)) {
-    		Growl::widget([
-    			'type' => Growl::TYPE_GROWL,
-    			'title' => 'Nope!',
-    			'icon' => "$profile->image",
-    			'iconOptions' => ['class'=>'img-ico'],
-    			'body' => '</br>Esto no es un WordPress.',
-    			'showSeparator' => false,
-    			'delay' => 0,
-    			'pluginOptions' => [
-    			'icon_type'=>'image',
-    			'showProgressbar' => false,
-    			'placement' => [
-    			'from' => 'top',
-    			'align' => 'right',
-    			],
-    			]
-    			]);
-    	}else{
-    		Yii::$app->session->setFlash('info','Esto no es un WordPress');
-    	}
-    	return $this->render('about');
+    public function actionWpAdmin()
+    {
+        $profile = Profile::find()->orderBy('id ASC')->limit(1)->one();
+        if (!is_null($profile)) {
+            Growl::widget([
+                'type' => Growl::TYPE_GROWL,
+                'title' => 'Nope!',
+                'icon' => "$profile->image",
+                'iconOptions' => ['class'=>'img-ico'],
+                'body' => '</br>Esto no es un WordPress.',
+                'showSeparator' => false,
+                'delay' => 0,
+                'pluginOptions' => [
+                'icon_type'=>'image',
+                'showProgressbar' => false,
+                'placement' => [
+                'from' => 'top',
+                'align' => 'right',
+                ],
+                ]
+                ]);
+        } else {
+            Yii::$app->session->setFlash('info', 'Esto no es un WordPress');
+        }
+        return $this->render('about');
     }
 
     public function actionSignup()
     {
-    	$model = new SignupForm();
-    	if ($model->load(Yii::$app->request->post())) {
-    		if ($user = $model->signup()) {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                $profile = new Profile();
+                $profile->id_user = $user->id;
+                $profile->email = $user->email;
+                $profile->save(false);
 
-    			$profile = new Profile();
-    			$profile->id_user = $user->id;
-    			$profile->email = $user->email;
-    			$profile->save(false);
+                $meta = new Metatag();
+                $meta->id_user = $user->id;
+                $meta->save(false);
 
-    			$meta = new Metatag();
-    			$meta->id_user = $user->id;
-    			$meta->save(false);
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
 
-    			if (Yii::$app->getUser()->login($user)) {
-    				return $this->goHome();
-    			}
-    		}
-    	}
-
-    	return $this->render('signup', [
-    		'model' => $model,
-    		]);
+        return $this->render('signup', [
+            'model' => $model,
+            ]);
     }
 
     public function actionRequestPasswordReset()
     {
-    	$model = new PasswordResetRequestForm();
-    	if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-    		if ($model->sendEmail()) {
-    			Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
-    			return $this->goHome();
-    		} else {
-    			Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
-    		}
-    	}
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
 
-    	return $this->render('requestPasswordResetToken', [
-    		'model' => $model,
-    		]);
+        return $this->render('requestPasswordResetToken', [
+            'model' => $model,
+            ]);
     }
 
     public function actionResetPassword($token)
     {
-    	try {
-    		$model = new ResetPasswordForm($token);
-    	} catch (InvalidParamException $e) {
-    		throw new BadRequestHttpException($e->getMessage());
-    	}
+        try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
 
-    	if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-    		Yii::$app->session->setFlash('success', 'New password was saved.');
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->session->setFlash('success', 'New password was saved.');
 
-    		return $this->goHome();
-    	}
+            return $this->goHome();
+        }
 
-    	return $this->render('resetPassword', [
-    		'model' => $model,
-    		]);
+        return $this->render('resetPassword', [
+            'model' => $model,
+            ]);
     }
-
-
 }

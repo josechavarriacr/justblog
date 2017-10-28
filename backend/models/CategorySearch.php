@@ -9,7 +9,6 @@ use backend\models\Category;
 
 class CategorySearch extends Category
 {
-
     public function rules()
     {
         return [

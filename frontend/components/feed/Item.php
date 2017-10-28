@@ -1,5 +1,6 @@
 <?php
 namespace frontend\components\feed;
+
 /**
  * Feed item
  */
@@ -66,14 +67,16 @@ class Item
      * @param string $email
      * @param string $name
      */
-    public function setAuthor($email, $name) {
+    public function setAuthor($email, $name)
+    {
         $this->author = [$email, $name];
     }
     /**
      * @var string
      */
     private $source;
-    public function __toString() {
+    public function __toString()
+    {
         $out = "\t\t<item>\n";
         $out.=Feed::renderTag('title', Feed::cdata($this->title), 3);
         $out.=Feed::renderTag('link', $this->link, 3);

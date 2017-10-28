@@ -9,7 +9,6 @@ use backend\models\Metatag;
 
 class MetatagSearch extends Metatag
 {
-
     public function rules()
     {
         return [

@@ -1,5 +1,6 @@
 <?php
 namespace frontend\components\feed;
+
 /**
  * Allows to create a valid RSS 2.0 feeds.
  * @version 0.1
@@ -109,7 +110,8 @@ class Feed
      * @param string $email
      * @param string $name
      */
-    public function setManagingEditor($email, $name) {
+    public function setManagingEditor($email, $name)
+    {
         $this->managingEditor = [$email, $name];
     }
     /**
@@ -118,7 +120,8 @@ class Feed
      * @param string $email
      * @param string $name
      */
-    public function setWebMaster($email, $name) {
+    public function setWebMaster($email, $name)
+    {
         $this->webMaster = [$email, $name];
     }
     /**
@@ -126,25 +129,34 @@ class Feed
      * @param Item $item
      * @throws Exception
      */
-    public function addItem(Item $item) {
-        if(empty($item->title) && empty($item->description)) {
+    public function addItem(Item $item)
+    {
+        if (empty($item->title) && empty($item->description)) {
             throw new Exception('At least one of title or description must be defined.');
         }
         $this->items[] = $item;
     }
-    private function validateChannel() {
-        if(empty($this->title)) throw new Exception('Missing channel title.');
-        if(empty($this->link)) throw new Exception('Missing channel link.');
-        if(empty($this->description)) throw new Exception('Missing channel description.');
+    private function validateChannel()
+    {
+        if (empty($this->title)) {
+            throw new Exception('Missing channel title.');
+        }
+        if (empty($this->link)) {
+            throw new Exception('Missing channel link.');
+        }
+        if (empty($this->description)) {
+            throw new Exception('Missing channel description.');
+        }
     }
-    public function fetch() {
+    public function fetch()
+    {
         $this->validateChannel();
         $out ='<?xml version="1.0"?>'."\n";
         $out.='<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'."\n";
         $out.="\t<channel>\n";
         $out.=Feed::renderTag('title', Feed::cdata($this->title), 2);
         $out.=Feed::renderTag('link', $this->link, 2);
-        if(!empty($this->selfLink)) {
+        if (!empty($this->selfLink)) {
             $out.="\t\t".'<atom:link href="'.$this->selfLink.'" rel="self" type="application/rss+xml" />'."\n";
         }
         $out.=Feed::renderTag('description', $this->description, 2);
@@ -170,23 +182,32 @@ class Feed
         $out.='</rss>';
         return $out;
     }
-    public function render() {
+    public function render()
+    {
         header('Content-Type: application/rss+xml');
         echo $this->fetch();
         die();
     }
-    static function renderTag($tagname, $value, $tabs = 0) {
-        if(empty($value)) return '';
+    public static function renderTag($tagname, $value, $tabs = 0)
+    {
+        if (empty($value)) {
+            return '';
+        }
         return str_repeat("\t", $tabs)."<$tagname>$value</$tagname>\n";
     }
-    static function convertTime($timestamp) {
-        if(empty ($timestamp)) return '';
+    public static function convertTime($timestamp)
+    {
+        if (empty($timestamp)) {
+            return '';
+        }
         return gmdate('r', $timestamp);
     }
-    static function cdata($text) {
+    public static function cdata($text)
+    {
         return '<![CDATA['.$text.']]>';
     }
-    static function escape($text) {
+    public static function escape($text)
+    {
         return htmlentities($text, ENT_QUOTES, 'UTF-8');
     }
 }

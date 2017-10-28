@@ -10,7 +10,6 @@ use frontend\components\Analytics;
 
 class SiteController extends Controller
 {
-
     public function behaviors()
     {
         return [

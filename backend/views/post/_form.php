@@ -9,6 +9,7 @@ use backend\components\TagsInput;
 use yii\helpers\ArrayHelper;
 use dosamigos\selectize\SelectizeTextInput;
 use kartik\switchinput\SwitchInput;
+
 ?>
 
 <div class="row">
@@ -26,7 +27,7 @@ use kartik\switchinput\SwitchInput;
             <?= $form->field($model, 'keyword')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'repo')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'categories')->widget(Select2::classname(), [
-             'data' => $data = ArrayHelper::map(Category::find()->all(),'id','name'),
+             'data' => $data = ArrayHelper::map(Category::find()->all(), 'id', 'name'),
              'options' => ['value'=> $model->categories,  'placeholder' => 'Select categories...', 'multiple' => true],
              'pluginOptions' => [
              'categories' => true,

@@ -19,14 +19,14 @@ return [
         'social' => [
             'class' => 'kartik\social\Module',
                 'disqus' => [
-                	'settings' => ['shortname' => 'DISQUS_SHORTNAME'] // default settings
+                    'settings' => ['shortname' => 'DISQUS_SHORTNAME'] // default settings
                         ],
                 'twitter' => [
-            		'screenName' => 'josechavarriacr'
-       					],
-       			'github' => [
-          			 'settings' => ['user'=>'josechavarriacr']
-        				],
+                    'screenName' => 'josechavarriacr'
+                           ],
+                   'github' => [
+                       'settings' => ['user'=>'josechavarriacr']
+                        ],
                     ],
                 ],
     'components' => [
@@ -78,9 +78,9 @@ return [
                 'post' => 'post/index',
                 'post/index' => 'post/index',
                 'post/create' => 'post/create',
-                'post/view/<id:\d+>' => 'post/view', 
-                'post/update/<id:\d+>' => 'post/update',  
-                'post/delete/<id:\d+>' => 'post/delete',  
+                'post/view/<id:\d+>' => 'post/view',
+                'post/update/<id:\d+>' => 'post/update',
+                'post/delete/<id:\d+>' => 'post/delete',
                 'post/<url>' => 'post/url',
 
                  

@@ -14,7 +14,7 @@ use yii\data\Pagination;
 class LogsController extends Controller
 {
     public function behaviors()
-    {   
+    {
         return [
         'access' => [
         'class' => AccessControl::className(),
@@ -75,10 +75,11 @@ class LogsController extends Controller
             ]);
     }
 
-    public function actionActivity($ip){
+    public function actionActivity($ip)
+    {
         $activity = Logs::getActivityIp($ip);
 
-        return $this->render('_activity',[
+        return $this->render('_activity', [
             'array' => $activity,
             ]);
     }

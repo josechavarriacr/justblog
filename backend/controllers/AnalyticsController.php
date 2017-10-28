@@ -10,9 +10,8 @@ use backend\models\Logs;
 
 class AnalyticsController extends Controller
 {
-    
     public function behaviors()
-    {   
+    {
         return [
         'access' => [
         'class' => AccessControl::className(),

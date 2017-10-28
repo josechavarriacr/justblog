@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="post-index">
 
   <h1><?= Html::encode($this->title) ?></h1>
-  <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
   <p>
     <?= Html::a('Create Post', ['create'], ['class' => 'btn btn-success']) ?>
@@ -35,20 +35,21 @@ $this->params['breadcrumbs'][] = $this->title;
     'label'=>'Status',
     'attribute'=>'status',
     'format'=>'raw',
-    'value' => function( $model ){
-      if($model->status)
-        return '<span class="label label-success">On</span>';
-      else
-        return '<span class="label label-danger">Off</span>';
+    'value' => function ($model) {
+        if ($model->status) {
+            return '<span class="label label-success">On</span>';
+        } else {
+            return '<span class="label label-danger">Off</span>';
+        }
     }
     ],
 
     ['class' => 'yii\grid\ActionColumn',
     'template'=>'{view} {update} {delete}',
     'buttons'=>[
-    'view' => function ($url, $model) {     
-     return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 'post/'.$model->url, ['title' => Yii::t('yii', 'View'),]);  
-   }
+    'view' => function ($url, $model) {
+        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 'post/'.$model->url, ['title' => Yii::t('yii', 'View'),]);
+    }
    ],],
    ],
    ]); ?>

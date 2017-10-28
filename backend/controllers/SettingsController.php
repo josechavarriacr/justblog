@@ -10,14 +10,13 @@ use  yii\helpers\FileHelper;
 
 class SettingsController extends Controller
 {
-	
-	public function behaviors()
-	{	
-		return [
-		'access' => [
-		'class' => AccessControl::className(),
-		'rules' => [
-		[
+    public function behaviors()
+    {
+        return [
+        'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+        [
         'actions' => ['login', 'error'],//actions without loggin
         'allow' => true,
         ],
@@ -40,48 +39,48 @@ class SettingsController extends Controller
 
     public function actions()
     {
-    	return [
-    	'error' => [
-    	'class' => 'yii\web\ErrorAction',
-    	],
-    	];
+        return [
+        'error' => [
+        'class' => 'yii\web\ErrorAction',
+        ],
+        ];
     }
 
-     public function actionSettings()
+    public function actionSettings()
     {
         return $this->render('settings');
     }
 
     public function actionFlushCache()
     {
-    	Yii::$app->cache->flush();
-    	Yii::$app->session->addFlash('success', 'Cache flushed.');
-    	return $this->redirect(Yii::$app->request->referrer);
+        Yii::$app->cache->flush();
+        Yii::$app->session->addFlash('success', 'Cache flushed.');
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     public function actionClearAssets()
-    {	
-    	$fron = Yii::getAlias('@frontend/web/assets');
-    	$back = Yii::$app->assetManager->basePath;
+    {
+        $fron = Yii::getAlias('@frontend/web/assets');
+        $back = Yii::$app->assetManager->basePath;
 
-    	$this->Clean($fron);
-    	$this->Clean($back);
-    	Yii::$app->session->addFlash('success', 'Assets flushed.');
+        $this->Clean($fron);
+        $this->Clean($back);
+        Yii::$app->session->addFlash('success', 'Assets flushed.');
 
-    	return $this->redirect(Yii::$app->request->referrer);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     private function Clean($path)
     {
-    	foreach(glob($path. DIRECTORY_SEPARATOR . '*') as $asset){
-    		Yii::$app->session->addFlash('info', $asset);
-    		if(is_link($asset)){
-    			unlink($asset);
-    		} elseif(is_dir($asset)){
-    			FileHelper::removeDirectory($asset);
-    		} else {
-    			unlink($asset);
-    		}
-    	}
+        foreach (glob($path. DIRECTORY_SEPARATOR . '*') as $asset) {
+            Yii::$app->session->addFlash('info', $asset);
+            if (is_link($asset)) {
+                unlink($asset);
+            } elseif (is_dir($asset)) {
+                FileHelper::removeDirectory($asset);
+            } else {
+                unlink($asset);
+            }
+        }
     }
 }

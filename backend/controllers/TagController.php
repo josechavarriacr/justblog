@@ -13,7 +13,7 @@ use yii\filters\AccessControl;
 class TagController extends Controller
 {
     public function behaviors()
-    {   
+    {
         return [
         'access' => [
         'class' => AccessControl::className(),

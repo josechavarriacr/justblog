@@ -36,10 +36,10 @@ return [
                 ],
             ],
         'denyCallback' => function () {
-          return Yii::$app->response->redirect(['site/login']);
-                                   },
+            return Yii::$app->response->redirect(['site/login']);
+        },
             ],
-    	// 'request' => [
+        // 'request' => [
      //        'baseUrl' => $baseUrl,
      //    ],
         // 'request' => [
@@ -79,10 +79,10 @@ return [
                 'post/index' => 'post/index',
                 'post/create' => 'post/create',
                 'post/list' => 'post/list',
-                'post/view/<id:\d+>' => 'post/view',  
-                'post/view/<id:\d+>' => 'post/view',  
-                'post/update/<id:\d+>' => 'post/update',  
-                'post/delete/<id:\d+>' => 'post/delete',  
+                'post/view/<id:\d+>' => 'post/view',
+                'post/view/<id:\d+>' => 'post/view',
+                'post/update/<id:\d+>' => 'post/update',
+                'post/delete/<id:\d+>' => 'post/delete',
                 'post/<url>' => 'post/url',
                 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',//hide view action

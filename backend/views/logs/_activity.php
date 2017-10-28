@@ -22,7 +22,7 @@ $this->title = 'Activity Ip';
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($array as $value): ?>
+		<?php foreach ($array as $value): ?>
 			<tr>
 				<td><?=$value['id'] ?></td>
 				<td><?=$value['ip'] ?></td>

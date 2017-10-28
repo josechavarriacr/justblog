@@ -31,10 +31,10 @@ use yii\widgets\LinkPager;
 						<div class="row">
 							<div class="col-lg-7">
 								<p class="text"><span class="label label-success"><?php 
-									$date=strtotime("-3 week");
-									if ($post['created_at'] > $date) {
-										echo "nuevo";	
-									} ;?></span> <?=substr($post['descripcion'], 0, 260 ) ?>.</p>
+                                    $date=strtotime("-3 week");
+                                    if ($post['created_at'] > $date) {
+                                        echo "nuevo";
+                                    } ;?></span> <?=substr($post['descripcion'], 0, 260) ?>.</p>
 								</div>	
 
 								<div class="col-lg-offset-5">
@@ -43,13 +43,13 @@ use yii\widgets\LinkPager;
 							</div>
 						<?php else : ?> 
 							<p class="text"><span class="label label-success"><?php 
-								$date=strtotime("-3 week");
-								if ($post['created_at'] > $date) {
-									echo "nuevo";	
-								} ;?></span> <?=substr($post['descripcion'], 0, 260 ) ?>.</p>
+                                $date=strtotime("-3 week");
+                                if ($post['created_at'] > $date) {
+                                    echo "nuevo";
+                                } ;?></span> <?=substr($post['descripcion'], 0, 260) ?>.</p>
 							<?php endif; ?> 
 
-							<p><?php foreach($tags as $tag) : ?>
+							<p><?php foreach ($tags as $tag) : ?>
 								<a href="<?= Url::to(['/post/tag/', 'category' => $tag]) ?>" 
 									style="font-size: 16px" class="badge progress-bar-info">#<?=$tag?></a>
 								<?php endforeach; ?></p>
@@ -61,6 +61,6 @@ use yii\widgets\LinkPager;
 				<hr>
 
 				<?=LinkPager::widget([
-					'pagination' => $pages,
-					]);?> 
+                    'pagination' => $pages,
+                    ]);?> 
 							</div><!-- col-md-9 start -->

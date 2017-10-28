@@ -4,7 +4,6 @@ namespace frontend\models;
 
 class Tag extends \yii\db\ActiveRecord
 {
-
     public static function tableName()
     {
         return 'tbl_tag';

@@ -1,7 +1,7 @@
 
 <?php if (!is_null($model)):?>
 	<?php $this->title= $model->name;?>
-	<code>Page generated on <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
+	<code>Page generated on <?=Yii::$app->formatter->asDateTime(time(), 'medium');?></code>
 	<div class="row">
 		<article class="blog">
 			<div class="col-lg-7 col-lg-offset-2 col-md-10 col-md-offset-1">

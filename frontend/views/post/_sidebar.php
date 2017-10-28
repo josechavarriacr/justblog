@@ -20,7 +20,7 @@ use frontend\models\Post;
 
 			<h4 class="heading">Etiquetas <span class="glyphicon glyphicon-tags"></span></h4>
 			<?php $tags = Post::getTags(); ?>
-			<?php foreach (array_slice($tags, 0,5) as $tg): ?>
+			<?php foreach (array_slice($tags, 0, 5) as $tg): ?>
 				<a href="<?= Url::to(['post/tag/', 'category'=>$tg['name']])?>" class="list-group-item">
 					<span style="font-size: 15px" class="badge progress-bar-danger"><?=$tg['count']?> </span><?=$tg['name']?></a>				
 				<?php endforeach; ?>

@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use backend\models\Post;
 
-
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'About', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->title;
@@ -14,12 +13,12 @@ $this->params['breadcrumbs'][] = $model->title;
 	<p>
 		<?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 		<?= Html::a('Delete', ['delete', 'id' => $model->id], [
-			'class' => 'btn btn-danger',
-			'data' => [
-			'confirm' => 'Are you sure you want to delete this item?',
-			'method' => 'post',
-			],
-			]) ?>
+            'class' => 'btn btn-danger',
+            'data' => [
+            'confirm' => 'Are you sure you want to delete this item?',
+            'method' => 'post',
+            ],
+            ]) ?>
 		</p>
 	</div>
 

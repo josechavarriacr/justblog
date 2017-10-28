@@ -9,7 +9,6 @@ use backend\models\Tag;
 
 class TagSearch extends Tag
 {
-
     public function rules()
     {
         return [

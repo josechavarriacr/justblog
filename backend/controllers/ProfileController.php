@@ -13,9 +13,8 @@ use yii\helpers\FileHelper;
 
 class ProfileController extends Controller
 {
-
     public function behaviors()
-    {   
+    {
         return [
         'access' => [
         'class' => AccessControl::className(),
@@ -69,11 +68,10 @@ class ProfileController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) ) {
-
+        if ($model->load(Yii::$app->request->post())) {
             $model->file = UploadedFile::getInstance($model, 'file');
             $img = $model->id.'a'.time();
-            if(!empty($model->file)){
+            if (!empty($model->file)) {
                 $path = Yii::getAlias('@web/uploads/profile/');
                 FileHelper::createDirectory('uploads/profile');
                 $model->file->saveAs('uploads/profile/'.$img.'.'.$model->file->extension);

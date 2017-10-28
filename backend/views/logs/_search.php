@@ -25,25 +25,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'new')->checkbox() ?>
 
-    <?php // echo $form->field($model, 'language') ?>
+    <?php // echo $form->field($model, 'language')?>
 
-    <?php // echo $form->field($model, 'method') ?>
+    <?php // echo $form->field($model, 'method')?>
 
-    <?php // echo $form->field($model, 'browser') ?>
+    <?php // echo $form->field($model, 'browser')?>
 
-    <?php // echo $form->field($model, 'os') ?>
+    <?php // echo $form->field($model, 'os')?>
 
-    <?php // echo $form->field($model, 'device') ?>
+    <?php // echo $form->field($model, 'device')?>
 
-    <?php // echo $form->field($model, 'type') ?>
+    <?php // echo $form->field($model, 'type')?>
 
-    <?php // echo $form->field($model, 'csrfToken') ?>
+    <?php // echo $form->field($model, 'csrfToken')?>
 
-    <?php // echo $form->field($model, 'port') ?>
+    <?php // echo $form->field($model, 'port')?>
 
-    <?php // echo $form->field($model, 'user_agent') ?>
+    <?php // echo $form->field($model, 'user_agent')?>
 
-    <?php // echo $form->field($model, 'time') ?>
+    <?php // echo $form->field($model, 'time')?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -6,13 +6,13 @@ use Yii;
 
 class Metatag extends \yii\db\ActiveRecord
 {
-
     public static function tableName()
     {
         return 'tbl_metatag';
     }
 
-    public $img, $ico;
+    public $img;
+    public $ico;
 
     public function rules()
     {

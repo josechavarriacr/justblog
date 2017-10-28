@@ -9,6 +9,7 @@ use backend\components\TagsInput;
 use yii\helpers\ArrayHelper;
 use dosamigos\selectize\SelectizeTextInput;
 use kartik\switchinput\SwitchInput;
+
 ?>
 
 <div class="row">
@@ -23,7 +24,9 @@ use kartik\switchinput\SwitchInput;
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'type')->dropDownList(
-            ['about' => 'About', 'privacy' => 'Privacy','ama' => 'AMA'], ['prompt' => 'Select']) ?>
+            ['about' => 'About', 'privacy' => 'Privacy','ama' => 'AMA'],
+    ['prompt' => 'Select']
+) ?>
             <?= $form->field($model, 'descripcion')->textArea(['maxlength' => 500,'rows' => '4']) ?>      
             <?php if ($model->img): ?>
                 <div class="img-preview">

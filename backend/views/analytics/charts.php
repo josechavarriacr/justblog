@@ -19,136 +19,136 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<!-- start ips -->
 	<?php echo $this->render('ips', [
-		'ips' => $ips,
-		]); ?>
+        'ips' => $ips,
+        ]); ?>
 		<!-- end ips -->
 
 		<p>
 			<?= Highcharts::widget([
-				'scripts' => [
-				'modules/exporting',
-				'themes/grid-light',
-				],
-				'options' => [
-				'title' => [
-				'text' => 'Popular Post',
-				],
-				'xAxis' => [
-				'categories' => $name,
-				],
-				'series' => [
-				[
-				'type' => 'column',
-				'name' => 'Visits',
-				'data' => $visits,
-				],
-				],
-				]
-				]);?>
+                'scripts' => [
+                'modules/exporting',
+                'themes/grid-light',
+                ],
+                'options' => [
+                'title' => [
+                'text' => 'Popular Post',
+                ],
+                'xAxis' => [
+                'categories' => $name,
+                ],
+                'series' => [
+                [
+                'type' => 'column',
+                'name' => 'Visits',
+                'data' => $visits,
+                ],
+                ],
+                ]
+                ]);?>
 
 			<?= Highcharts::widget([
-				'scripts' => [
-				'modules/exporting',
-				'themes/grid-light',
-				],
-				'options' => [
-				'title' => [
-				'text' => 'user analytics',
-				],
-				'labels' => [
-				'items' => [
-				[
-				'style' => [
-				'left' => '50px',
-				'top' => '18px',
-				'color' => new JsExpression('(Highcharts.theme && Highcharts.theme.textColor) || "black"'),
-				],
-				],
-				],
-				],
-				'series' => [
-				[
-				'type' => 'pie',
-				'name' => 'OS',
-				'data' => $os,
-				'center' => [600, 250],
-				'size' => 150,
-				'showInLegend' => false,
-				],
-				[
-				'type' => 'pie',
-				'name' => 'Device',
-				'data' => $device,
-				'center' => [400, 80],
-				'size' => 150,
-				'showInLegend' => false,
-				],
-				[
-				'type' => 'pie',
-				'name' => 'Type',
-				'data' => $type,
-				'center' => [200, 250],
-				'size' => 150,
-				'showInLegend' => false,
-				],
-				[
-				'type' => 'pie',
-				'name' => 'Browser',
-				'data' => $browser,
-				'center' => [900, 80],
-				'size' => 170,
-				'showInLegend' => false,
-				],
-				],
-				]
-				]);?>
+                'scripts' => [
+                'modules/exporting',
+                'themes/grid-light',
+                ],
+                'options' => [
+                'title' => [
+                'text' => 'user analytics',
+                ],
+                'labels' => [
+                'items' => [
+                [
+                'style' => [
+                'left' => '50px',
+                'top' => '18px',
+                'color' => new JsExpression('(Highcharts.theme && Highcharts.theme.textColor) || "black"'),
+                ],
+                ],
+                ],
+                ],
+                'series' => [
+                [
+                'type' => 'pie',
+                'name' => 'OS',
+                'data' => $os,
+                'center' => [600, 250],
+                'size' => 150,
+                'showInLegend' => false,
+                ],
+                [
+                'type' => 'pie',
+                'name' => 'Device',
+                'data' => $device,
+                'center' => [400, 80],
+                'size' => 150,
+                'showInLegend' => false,
+                ],
+                [
+                'type' => 'pie',
+                'name' => 'Type',
+                'data' => $type,
+                'center' => [200, 250],
+                'size' => 150,
+                'showInLegend' => false,
+                ],
+                [
+                'type' => 'pie',
+                'name' => 'Browser',
+                'data' => $browser,
+                'center' => [900, 80],
+                'size' => 170,
+                'showInLegend' => false,
+                ],
+                ],
+                ]
+                ]);?>
 
 			<?= Highcharts::widget([
-				'scripts' => [
-				'modules/exporting',
-				'themes/grid-light',
-				],
-				'options' => [
-				'title' => [
-				'text' => 'user analytics',
-				],
-				'labels' => [
-				'items' => [
-				[
-				'style' => [
-				'left' => '50px',
-				'top' => '18px',
-				'color' => new JsExpression('(Highcharts.theme && Highcharts.theme.textColor) || "black"'),
-				],
-				],
-				],
-				],
-				'series' => [
-				[
-				'type' => 'pie',
-				'name' => 'Referrer',
-				'data' => $referrer,
-				'showInLegend' => false,
-				],
-				[
-				'type' => 'pie',
-				'name' => 'Language',
-				'data' => $language,
-				'center' => [950, 50],
-				'size' => 100,
-				'showInLegend' => false,
-				],
-				[
-				'type' => 'pie',
-				'name' => 'Visits',
-				'data' => $new,
-				'center' => [200, 250],
-				'size' => 100,
-				'showInLegend' => false,
-				],
-				],
-				]
-				]);?>
+                'scripts' => [
+                'modules/exporting',
+                'themes/grid-light',
+                ],
+                'options' => [
+                'title' => [
+                'text' => 'user analytics',
+                ],
+                'labels' => [
+                'items' => [
+                [
+                'style' => [
+                'left' => '50px',
+                'top' => '18px',
+                'color' => new JsExpression('(Highcharts.theme && Highcharts.theme.textColor) || "black"'),
+                ],
+                ],
+                ],
+                ],
+                'series' => [
+                [
+                'type' => 'pie',
+                'name' => 'Referrer',
+                'data' => $referrer,
+                'showInLegend' => false,
+                ],
+                [
+                'type' => 'pie',
+                'name' => 'Language',
+                'data' => $language,
+                'center' => [950, 50],
+                'size' => 100,
+                'showInLegend' => false,
+                ],
+                [
+                'type' => 'pie',
+                'name' => 'Visits',
+                'data' => $new,
+                'center' => [200, 250],
+                'size' => 100,
+                'showInLegend' => false,
+                ],
+                ],
+                ]
+                ]);?>
 			</p>
 
 		</div>

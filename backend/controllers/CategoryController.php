@@ -13,8 +13,8 @@ use yii\web\UploadedFile;
 
 class CategoryController extends Controller
 {
-   public function behaviors()
-    {   
+    public function behaviors()
+    {
         return [
         'access' => [
         'class' => AccessControl::className(),
@@ -71,7 +71,7 @@ class CategoryController extends Controller
     {
         $model = new Category();
 
-        if ($model->load(Yii::$app->request->post()) ) {
+        if ($model->load(Yii::$app->request->post())) {
             $imageName = time();
             $model->file = UploadedFile::getInstance($model, 'file');
             $path = Yii::getAlias('@web/uploads/meta/');
@@ -92,9 +92,9 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) ) {
+        if ($model->load(Yii::$app->request->post())) {
             $imageName = time();
-            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file = UploadedFile::getInstance($model, 'file');
             $path = Yii::getAlias('@web/uploads/meta/');
             if (!empty($model->file)) {
                 $model->file->saveAs('uploads/meta/'.$imageName.'.'.$model->file->extension);

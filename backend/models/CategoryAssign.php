@@ -6,7 +6,6 @@ use Yii;
 
 class CategoryAssign extends \yii\db\ActiveRecord
 {
-
     public static function tableName()
     {
         return 'tbl_post_category';

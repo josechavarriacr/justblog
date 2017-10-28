@@ -39,32 +39,32 @@ class m130524_201442_init extends Migration
             'status' => $this->boolean(),
             ], $tableOptions);
 
-        $this->createTable('{{%tbl_category}}',[
+        $this->createTable('{{%tbl_category}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(128)->notNull(),
             'description' => $this->string(512),
             'url' => $this->string(128)->notNull(),
             'img' => $this->string(128),
-            ],$tableOptions); 
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_tag}}',[
+        $this->createTable('{{%tbl_tag}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(64)->notNull(),
-            ],$tableOptions);
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_post_category}}',[
+        $this->createTable('{{%tbl_post_category}}', [
             'id' => $this->primaryKey(),
             'id_post' => $this->integer(),
             'id_category' => $this->integer(),
-            ],$tableOptions); 
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_post_tag}}',[
+        $this->createTable('{{%tbl_post_tag}}', [
             'id' => $this->primaryKey(),
             'id_post' => $this->integer(),
             'id_tag' => $this->integer(),
-            ],$tableOptions); 
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_logs}}',[
+        $this->createTable('{{%tbl_logs}}', [
             'id' => $this->primaryKey(),
             'ip' => $this->string(64),
             'module' => $this->string(512),
@@ -80,9 +80,9 @@ class m130524_201442_init extends Migration
             'port' => $this->string(64),
             'user_agent' => $this->string(512),
             'time' => $this->integer(),
-            ],$tableOptions); 
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_metatag}}',[
+        $this->createTable('{{%tbl_metatag}}', [
             'id' => $this->primaryKey(),
             'id_user' => $this->integer(),
             'title' => $this->string(64),
@@ -92,9 +92,9 @@ class m130524_201442_init extends Migration
             'category' => $this->string(64),
             'icon' => $this->string(128),
             'image' => $this->string(128),
-            ],$tableOptions); 
+            ], $tableOptions);
 
-        $this->createTable('{{%tbl_profile}}',[
+        $this->createTable('{{%tbl_profile}}', [
             'id' => $this->primaryKey(),
             'id_user' => $this->integer(),
             'name' => $this->string(64),
@@ -106,7 +106,7 @@ class m130524_201442_init extends Migration
             'linkedin' => $this->string(64),
             'github' => $this->string(64),
             'description' => $this->text(),
-            ],$tableOptions); 
+            ], $tableOptions);
     }
 
     public function down()

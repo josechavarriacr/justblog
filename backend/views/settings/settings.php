@@ -17,19 +17,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<p>
 		<?= Html::a('<i class="glyphicon glyphicon-flash"></i> Flush cache', ['/settings/flush-cache'], [
-			'class' => 'btn btn-primary',
-			'data' => [
-			'method' => 'post',
-			],
-			]) ?>
+            'class' => 'btn btn-primary',
+            'data' => [
+            'method' => 'post',
+            ],
+            ]) ?>
 		</p>
 		<p>
 			<?= Html::a('<i class="glyphicon glyphicon-trash"></i> Clear assets', ['/settings/clear-assets'], [
-				'class' => 'btn btn-primary',
-				'data' => [
-				'method' => 'post',
-				],
-				]) ?>
+                'class' => 'btn btn-primary',
+                'data' => [
+                'method' => 'post',
+                ],
+                ]) ?>
 			</p>
 
 

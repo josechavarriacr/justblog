@@ -9,15 +9,15 @@ use frontend\components\Analytics;
 Yii::$app->meta->getMetaTags($model->id);
 ?>
 <div class="post-view">
-	<code>Page generated on <?=Yii::$app->formatter->asDateTime(time(),'medium');?></code>
+	<code>Page generated on <?=Yii::$app->formatter->asDateTime(time(), 'medium');?></code>
 	<p><?=IpInfo::widget([
-		'flagWrapperOptions' => [
-		'class' => 'btn btn-lg btn-default'
-		],
-		'popoverOptions' => [
-		'placement' => PopoverX::ALIGN_BOTTOM_LEFT
-		]
-		]);?></p>
+        'flagWrapperOptions' => [
+        'class' => 'btn btn-lg btn-default'
+        ],
+        'popoverOptions' => [
+        'placement' => PopoverX::ALIGN_BOTTOM_LEFT
+        ]
+        ]);?></p>
 
 		<div class="row">
 			<article class="blog">
@@ -29,8 +29,8 @@ Yii::$app->meta->getMetaTags($model->id);
 
 					<!-- start _github -->
 					<?php echo $this->render('_github', [
-						'repo' => $model->repo,
-						]); ?>
+                        'repo' => $model->repo,
+                        ]); ?>
 						<!-- end _github -->
 
 						<hr>
@@ -41,8 +41,8 @@ Yii::$app->meta->getMetaTags($model->id);
 
 						<!-- start _share -->
 						<?php echo $this->render('_share', [
-							'url' => $model->url,
-							]); ?>
+                            'url' => $model->url,
+                            ]); ?>
 							<!-- end _share -->
 							<hr>
 						</div>

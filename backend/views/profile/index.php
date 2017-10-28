@@ -18,13 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Profile', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 -->
-<?php foreach($model as $value) : ?>
+<?php foreach ($model as $value) : ?>
     <div class="row">
         <article class="blog">
             <div class="col-lg-7 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="row">
                     <div class="col-lg-5">
-                        <?= Html::a(Html::img($value->image,['class'=>'img-circle']),[$value->id] ) ?>
+                        <?= Html::a(Html::img($value->image, ['class'=>'img-circle']), [$value->id]) ?>
                     </div>
                     <div class="col-lg-5 text-center">
                         <h1 class="heading">
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div><hr>
                 <!-- <div class="row">                   
-                    <p><?=substr($value->description, 0, 360 );?></p>
+                    <p><?=substr($value->description, 0, 360);?></p>
                 </div> -->
 
             </div>
