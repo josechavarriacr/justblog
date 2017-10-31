@@ -17,36 +17,34 @@ class ProfileController extends Controller
     public function behaviors()
     {   
         return [
-        'access' => [
-        'class' => AccessControl::className(),
-        'rules' => [
-        [
-        'actions' => ['login', 'error'],//actions without loggin
-        'allow' => true,
-        ],
-        [
-        'actions' => ['logout','index','view','update','delete'],//action with login
-        'allow' => true,
-        'roles' => ['@'],
-        ],
-        ]
-        ],
-        'verbs' => [
-        'class' => VerbFilter::className(),
-        'actions' => [
-        'flush-cache' => ['POST'],
-        'clear-assets' => ['POST'],
-        ],
-        ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],//actions without loggin
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout','index','view','update','delete'],//action with login
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ]
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'flush-cache' => ['POST'],
+                    'clear-assets' => ['POST'],
+                ],
+            ],
         ];
     }
 
     public function actions()
     {
         return [
-        'error' => [
-        'class' => 'yii\web\ErrorAction',
-        ],
+            'error' => ['class' => 'yii\web\ErrorAction'],
         ];
     }
 
@@ -54,16 +52,12 @@ class ProfileController extends Controller
     {
         $model = Profile::find()->all();
 
-        return $this->render('index', [
-            'model' => $model,
-            ]);
+        return $this->render('index', ['model' => $model]);
     }
 
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            ]);
+        return $this->render('view', ['model' => $this->findModel($id)]);
     }
 
     public function actionUpdate($id)
@@ -73,19 +67,19 @@ class ProfileController extends Controller
 
             $model->file = UploadedFile::getInstance($model, 'file');
             $img = $model->id.'a'.time();
-            if(!empty($model->file)){
+            if (!empty($model->file)) {
                 $path = Yii::getAlias('@web/uploads/profile/');
                 FileHelper::createDirectory('uploads/profile');
-                $model->file->saveAs('uploads/profile/'.$img.'.'.$model->file->extension);
+                $model->file->saveAs(
+                    'uploads/profile/'.$img.'.'.$model->file->extension
+                );
                 $model->image = $path.$img.'.'.$model->file->extension;
             }
 
             $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
-                ]);
+            return $this->render('update', ['model' => $model]);
         }
     }
 

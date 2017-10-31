@@ -14,34 +14,34 @@ class AnalyticsController extends Controller
     public function behaviors()
     {   
         return [
-        'access' => [
-        'class' => AccessControl::className(),
-        'rules' => [
-        [
-        'actions' => ['login', 'error'],//actions without loggin
-        'allow' => true,
-        ],
-        [
-        'actions' => ['charts'],//action with login
-        'allow' => true,
-        'roles' => ['@'],
-        ],
-        ]
-        ],
-        'verbs' => [
-        'class' => VerbFilter::className(),
-        'actions' => [
-        ],
-        ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],//actions without loggin
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['charts'],//action with login
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ]
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                ],
+            ],
         ];
     }
 
     public function actions()
     {
         return [
-        'error' => [
-        'class' => 'yii\web\ErrorAction',
-        ],
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
         ];
     }
 
@@ -60,18 +60,21 @@ class AnalyticsController extends Controller
         $ips = Logs::getIps();
 
 
-        return $this->render('charts', [
-            'visits' => $visits,
-            'name' => $name,
-            'categories' => $categories,
-            'browser' => $browser,
-            'referrer' => $referrer,
-            'language' => $language,
-            'os' => $os,
-            'device' => $device,
-            'type' => $type,
-            'new' => $new,
-            'ips' => $ips,
-            ]);
+        return $this->render(
+            'charts', 
+            [
+                'visits'     => $visits,
+                'name'       => $name,
+                'categories' => $categories,
+                'browser'    => $browser,
+                'referrer'   => $referrer,
+                'language'   => $language,
+                'os'         => $os,
+                'device'     => $device,
+                'type'       => $type,
+                'new'        => $new,
+                'ips'        => $ips,
+            ]
+        );
     }
 }
