@@ -10,6 +10,7 @@ use common\widgets\Alert;
 AppAsset::register($this);
 $user = Yii::$app->user->id;
 ?>
+<?= Html::csrfMetaTags() ?>
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
