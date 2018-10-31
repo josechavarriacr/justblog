@@ -10,9 +10,9 @@ Simple platform for blogging based in Yii2
 
 # Try Live
 
-home -> http://justblog.site
+home -> http://justblog.chavarria.cr/
 
-admin -> http://justblog.site/admin
+admin ->http://justblog.chavarria.cr/admin
 
 
 REQUIREMENTS
