@@ -10,9 +10,9 @@ Simple platform for blogging based in Yii2
 
 # Try Live
 
-home -> http://justblog.site
+home -> http://justblog.chavarria.cr/
 
-admin -> http://justblog.site/admin
+admin ->http://justblog.chavarria.cr/admin
 
 
 REQUIREMENTS
@@ -24,7 +24,6 @@ INSTALLATION
 ------------
 
 1- git clone https://github.com/josechavarriacr/justblog.git
-or dowloaded de zip file from https://justblog.site/justblog.zip 
 
 2- composer update
 

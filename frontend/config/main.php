@@ -58,7 +58,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'sc' => [
-            'class' => 'frontend\components\SrcCollect',
+            'class' => 'app\controllers\SrcCollect',
         ],
         'meta' => [
             'class' => 'frontend\components\MetaTagsPost',

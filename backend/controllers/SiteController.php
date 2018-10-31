@@ -14,35 +14,35 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-        'access' => [
-        'class' => AccessControl::className(),
-        'rules' => [
-        [
-        'actions' => ['login', 'error'],//actions without loggin
-        'allow' => true,
-        ],
-        [
-        'actions' => ['logout', 'index'],//action with login
-        'allow' => true,
-        'roles' => ['@'],
-        ],
-        ],
-        ],
-        'verbs' => [
-        'class' => VerbFilter::className(),
-        'actions' => [
-        'logout' => ['post'],
-        ],
-        ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],//actions without loggin
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],//action with login
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
         ];
     }
 
     public function actions()
     {
         return [
-        'error' => [
-        'class' => 'yii\web\ErrorAction',
-        ],
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
         ];
     }
 
@@ -61,9 +61,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->render('login', [
-                'model' => $model,
-                ]);
+            return $this->render('login', ['model' => $model]);
         }
     }
 

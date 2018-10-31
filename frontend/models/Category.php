@@ -2,16 +2,29 @@
 
 namespace frontend\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
-class Category extends \yii\db\ActiveRecord
+/**
+ * Class Category
+ * @property TblPostCategories[] $tblPostCategories
+ * @package frontend\models
+ */
+class Category extends ActiveRecord
 {
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public static function tableName()
     {
-        return 'tbl_category';
+        return '{{%tbl_category}}';
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -21,6 +34,10 @@ class Category extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function attributeLabels()
     {
         return [
@@ -32,6 +49,9 @@ class Category extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getTblPostCategories()
     {
         return $this->hasMany(TblPostCategory::className(), ['id_category' => 'id']);

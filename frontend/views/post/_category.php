@@ -54,7 +54,7 @@ $this->title = $modelCategory->name;
 				<!-- end _posts -->
 
 
-				<<!-- start _sidebar -->
+				<!-- start _sidebar -->
 				<?php echo $this->render('_sidebar', [
 					'models' => $models,
 					]); ?>
